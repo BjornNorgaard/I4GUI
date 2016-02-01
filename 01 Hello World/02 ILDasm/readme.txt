@@ -1,0 +1,3 @@
+1: kald "ildasm HelloWorld.exe"
+
+2: studer fil...
