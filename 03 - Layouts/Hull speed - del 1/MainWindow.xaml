@@ -1,0 +1,23 @@
+﻿<Window x:Class="Hull_speed___del_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hull_speed___del_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Background="White">
+    <Grid>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="319" Margin="303,0,-57,0" VerticalAlignment="Top" Width="271" Source="03-Sailboat.jpg"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="24" Margin="64,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LenghtBox" HorizontalAlignment="Left" Height="24" Margin="64,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40"/>
+        <TextBlock x:Name="Name" HorizontalAlignment="Left" Margin="10,16,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Name2" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="Lenght:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="109,39,0,0" TextWrapping="Wrap" Text="feet" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Calculate Hull Speed" HorizontalAlignment="Left" Margin="64,65,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Hull speed:"/></TextBlock>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="109,96,0,0" TextWrapping="Wrap" Text="knots" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="" HorizontalAlignment="Left" Margin="69,91,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
