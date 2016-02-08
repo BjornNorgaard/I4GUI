@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _03___Layouts.Properties
+namespace Hull_speed___del_3__vis_enviroment_.Properties
 {
 
 

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _03___Layouts
+namespace Hull_speed___del_3__vis_enviroment_
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

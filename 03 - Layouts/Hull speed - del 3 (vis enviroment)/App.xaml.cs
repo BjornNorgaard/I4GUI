@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace _03___Layouts
+namespace Hull_speed___del_3__vis_enviroment_
 {
     /// <summary>
     /// Interaction logic for App.xaml
