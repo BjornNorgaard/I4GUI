@@ -6,8 +6,35 @@
         xmlns:local="clr-namespace:_04___Mouse_and_keyboard"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <DockPanel HorizontalAlignment="Right" LastChildFill="False" Margin="0,57,0,0" Width="173" Height="208" VerticalAlignment="Top"/>
-        
-    </Grid>
+
+    <DockPanel LastChildFill="True">
+        <Image DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="image" Source="sailboat.jpg"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="203*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition Width="56*"/>
+                <ColumnDefinition Width="53*"/>
+                <ColumnDefinition Width="47*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="NameBlock" Margin="5" TextWrapping="Wrap" Text="Name:"/>
+            <TextBlock x:Name="LenghtBlock" Margin="5" TextWrapping="Wrap" Text="Lenght:" Grid.Row="1"/>
+            <TextBox x:Name="NameBox" TextWrapping="Wrap" Text="" Margin="5" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="LenghtBox" TextWrapping="Wrap" Text="" Margin="5" Grid.Column="1" Grid.Row="1"/>
+            <TextBlock x:Name="FeetBlock" Margin="5" TextWrapping="Wrap" Text="feet" Grid.Row="1" Grid.Column="2"/>
+            <Button x:Name="button" Grid.ColumnSpan="3" Content="Button" Grid.Column="1" Margin="5" Grid.Row="2" Click="button_Click"/>
+            <TextBlock x:Name="HullSpeeBlock" Margin="5" TextWrapping="Wrap" Text="Hull Speed:" Grid.Row="3"/>
+            <TextBox x:Name="HSResultBlock" Margin="5" TextWrapping="Wrap" Text="" Grid.Row="3" Grid.Column="1"/>
+            <TextBlock x:Name="KnotsBlock" Margin="5" TextWrapping="Wrap" Text="knots" Grid.Row="3" Grid.Column="2"/>
+        </Grid>
+    </DockPanel>
+
+
 </Window>

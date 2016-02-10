@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace _04___Mouse_and_keyboard
 {
@@ -20,9 +7,26 @@ namespace _04___Mouse_and_keyboard
     /// </summary>
     public partial class MainWindow : Window
     {
+        Sailboat sailboat = new Sailboat();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            sailboat.Name = NameBox.Text;
+            try
+            {
+                sailboat.Length = double.Parse(LenghtBox.Text);
+            }
+            catch (System.FormatException)
+            {
+                sailboat.Length = -1;
+            }
+
+            HSResultBlock.Text = sailboat.Hullspeed().ToString(format: "F");
         }
     }
 }
