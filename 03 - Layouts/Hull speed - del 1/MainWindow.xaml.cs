@@ -21,6 +21,8 @@ namespace Hull_speed___del_1
     /// </summary>
     public partial class MainWindow : Window
     {
+        Sailboat sailboat = new Sailboat();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +30,10 @@ namespace Hull_speed___del_1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            label.Content = 1.34 * System.Math.Sqrt(double.Parse(LenghtBox.Text));
+            sailboat.Name = NameBox.Text;
+            sailboat.Length = double.Parse(LenghtBox.Text);
+
+            label.Content = sailboat.Hullspeed();
         }
     }
 }
