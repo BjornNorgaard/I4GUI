@@ -76,25 +76,25 @@ namespace _04___Mouse_and_keyboard
             }
         }
 
-        private void Image_OnMouseMove(object sender, MouseEventArgs e)
-        {
-            string messageForUser;
+        //private void Image_OnMouseMove(object sender, MouseEventArgs e)
+        //{
+        //    string messageForUser;
 
-            if (sailboat.Name == null)
-            {
-                messageForUser = "The boat has not been given a name yet.";
-            }
-            else if (sailboat.Name == "")
-            {
-                messageForUser = "The boat has lost its name.";
-            }
-            else
-            {
-                messageForUser = "The name of the boat is " + sailboat.Name;
-            }
+        //    if (sailboat.Name == null)
+        //    {
+        //        messageForUser = "The boat has not been given a name yet";
+        //    }
+        //    else if (sailboat.Name == "")
+        //    {
+        //        messageForUser = "The boat has lost its name";
+        //    }
+        //    else
+        //    {
+        //        messageForUser = "The name of the boat is " + sailboat.Name;
+        //    }
 
-            MessageBox.Show(messageForUser, "Windows Admin", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+        //    MessageBox.Show(messageForUser, "Windows Admin", MessageBoxButton.OK, MessageBoxImage.Information);
+        //}
 
         private void ImageButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -102,11 +102,11 @@ namespace _04___Mouse_and_keyboard
 
             if (sailboat.Name == null)
             {
-                messageForUser = "The boat has not been given a name yet.";
+                messageForUser = "The boat has not been given a name yet";
             }
             else if (sailboat.Name == "")
             {
-                messageForUser = "The boat has lost its name.";
+                messageForUser = "The boat has lost its name";
             }
             else
             {

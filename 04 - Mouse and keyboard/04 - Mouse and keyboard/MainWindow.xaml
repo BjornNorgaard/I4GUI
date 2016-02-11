@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:_04___Mouse_and_keyboard"
         mc:Ignorable="d"
         Title="Glorious Application is Glorious" Height="350" Width="520"
-        KeyDown="MainWindow_OnKeyDown">
+        KeyDown="MainWindow_OnKeyDown"
+        FocusManager.FocusedElement="{Binding ElementName=NameBox}">
 
     <DockPanel LastChildFill="True">
         <!--<Image DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="image" Source="sailboat.jpg" MouseMove="Image_OnMouseMove"/>-->
