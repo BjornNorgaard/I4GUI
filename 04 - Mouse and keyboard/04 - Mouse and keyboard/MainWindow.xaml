@@ -9,7 +9,10 @@
         KeyDown="MainWindow_OnKeyDown">
 
     <DockPanel LastChildFill="True">
-        <Image DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="image" Source="sailboat.jpg" MouseMove="Image_OnMouseMove"/>
+        <!--<Image DockPanel.Dock="Right" HorizontalAlignment="Right" x:Name="image" Source="sailboat.jpg" MouseMove="Image_OnMouseMove"/>-->
+        <Button BorderThickness="0" DockPanel.Dock="Right" Click="ImageButton_OnClick">
+            <Image HorizontalAlignment="Right" x:Name="image" Source="sailboat.jpg"/>
+        </Button>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30*"/>

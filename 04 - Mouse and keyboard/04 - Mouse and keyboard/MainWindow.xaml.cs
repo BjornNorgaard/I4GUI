@@ -44,7 +44,7 @@ namespace _04___Mouse_and_keyboard
             int fontSizeChangeRate = 5;
             int windowSizeChangeRate = 100;
             double windowsRadio = Width / Height;
-            
+
             if ((Keyboard.Modifiers & ModifierKeys.Control) != 0 && e.Key == Key.L)
             {
                 Debug.WriteLine("Ctrl+L was pressed.");
@@ -53,7 +53,7 @@ namespace _04___Mouse_and_keyboard
                     FontSize += fontSizeChangeRate;
 
                     Height += windowSizeChangeRate;
-                    Width = windowsRadio*Height;
+                    Width = windowsRadio * Height;
 
                     Debug.WriteLine("FontSize is now: " + FontSize);
                     Debug.WriteLine("WindowSize is: " + Height + " by " + Width);
@@ -92,7 +92,27 @@ namespace _04___Mouse_and_keyboard
             {
                 messageForUser = "The name of the boat is " + sailboat.Name;
             }
-            
+
+            MessageBox.Show(messageForUser, "Windows Admin", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void ImageButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            string messageForUser;
+
+            if (sailboat.Name == null)
+            {
+                messageForUser = "The boat has not been given a name yet.";
+            }
+            else if (sailboat.Name == "")
+            {
+                messageForUser = "The boat has lost its name.";
+            }
+            else
+            {
+                messageForUser = "The name of the boat is " + sailboat.Name;
+            }
+
             MessageBox.Show(messageForUser, "Windows Admin", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
