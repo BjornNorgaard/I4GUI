@@ -31,7 +31,8 @@ namespace _05___Baby_names
 
             string[] lines = System.IO.File.ReadAllLines("babynames.txt");
 
-            for (int i = 0; i < 10; i++)
+            // load ALL the names!
+            for (int i = 0; i < lines.Length; i++)
             {
                 CollectionOfBabyNames.Add(lines[i]);
             }
