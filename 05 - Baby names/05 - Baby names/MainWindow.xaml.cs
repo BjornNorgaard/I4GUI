@@ -27,7 +27,16 @@ namespace _05___Baby_names
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            //throw new NotImplementedException();
+            List<string> CollectionOfBabyNames = new List<string>();
+
+            string[] lines = System.IO.File.ReadAllLines("babynames.txt");
+
+            for (int i = 0; i < 10; i++)
+            {
+                CollectionOfBabyNames.Add(lines[i]);
+            }
+            
+            Top10listBox.ItemsSource = CollectionOfBabyNames;
         }
     }
 }
