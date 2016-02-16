@@ -5,48 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_05___Baby_names"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="550"
+        Title="MainWindow" Height="552" Width="526"
         Loaded="MainWindow_OnLoaded">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="317*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="254*"/>
-            <RowDefinition Height="327*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="302*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="DecadesListBox" Margin="5" Grid.Row="1"/>
-        <ListBox x:Name="TopBabyNamesListBox" Margin="5" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock x:Name="DecadesBlock" HorizontalAlignment="Left" Margin="5" Text="Decades" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="TopBabyNamesBlock" HorizontalAlignment="Left" Margin="5" Text="Top 10 baby names in selected decade" VerticalAlignment="Bottom" Grid.Column="1"/>
-        <GroupBox x:Name="SearchGroupBox" Header="Search" Margin="2" Grid.Row="2" Grid.ColumnSpan="2">
-            <Grid  Margin="10,10,0,0">
+
+        <Label x:Name="DecadesLabel" Content="Decades" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="26" Width="55"/>
+        <Label x:Name="Top10Label" Content="Top 10 baby names in selected decade" Grid.Column="1"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="26" Width="214"/>
+        <ListBox x:Name="DecadeslistBox" Grid.Row="1" Margin="5"/>
+        <ListBox x:Name="Top10listBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <GroupBox x:Name="SearchGroupBox" Header="Search" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" >
+            <Grid Margin="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="36*"/>
-                    <ColumnDefinition Width="72*"/>
-                    <ColumnDefinition Width="126*"/>
+                    <ColumnDefinition Width="52*"/>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="60*"/>
                     <ColumnDefinition Width="53*"/>
-                    <ColumnDefinition Width="43*"/>
-                    <ColumnDefinition Width="186*"/>
+                    <ColumnDefinition Width="142*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="46*"/>
-                    <RowDefinition Height="39*"/>
-                    <RowDefinition Height="43*"/>
-                    <RowDefinition Height="46*"/>
-                    <RowDefinition Height="42*"/>
-                    <RowDefinition Height="76*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="36*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="49*"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="NameLabel" Content="Name" Grid.Column="1" Margin="5,0,5,5" Grid.Row="1" Height="26" HorizontalAlignment="Left"/>
-                <TextBox x:Name="NameInputBox" Grid.ColumnSpan="3" Grid.Column="2" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text=""/>
-                <Button x:Name="SearchButton" Content="Search" Grid.Column="2" Margin="5" Grid.Row="2"/>
-                <Label x:Name="AvgRankLabel" Content="Average Ranking:" Grid.Column="2" Margin="5" Grid.Row="3" Height="26" Width="102" HorizontalAlignment="Left"/>
-                <ListBox x:Name="AvgRankBox" Grid.Column="3" Margin="5" Grid.Row="3"/>
-                <Label x:Name="TrendLabel" Content="Trend:" Grid.Column="2" HorizontalAlignment="Left" Margin="5" Grid.Row="4"/>
-                <ListBox x:Name="TrendBox" Grid.Column="3" Margin="5" Grid.Row="4" Grid.ColumnSpan="2"/>
+
+                <Label Margin="0,5,5,0" Grid.Column="0" Grid.Row="1" Content="Name" HorizontalAlignment="Right" Width="42" VerticalAlignment="Top" Height="26"/>
+                <TextBox Margin="5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"></TextBox>
+                <ListView x:Name="YearRankListView" Grid.Column="4" Grid.Row="1" Margin="5" Grid.RowSpan="5" Grid.ColumnSpan="2"/>
+                <Button x:Name="SearchButton" Margin="5" Content="Search" Grid.Column="1" Grid.Row="2" />
+                <Label x:Name="AvgRankLabel" Content="Average ranking:" Grid.Row="3" Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="99" Grid.Column="1"/>
+                <TextBox x:Name="AvgRankTextBox" Grid.Column="2" Grid.Row="3" Text="" Margin="5" Grid.ColumnSpan="1"/>
+                <Label x:Name="TrendLabel" Content="Trend:" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Height="26" Width="42"/>
+                <TextBox x:Name="TrendTextBox" Grid.ColumnSpan="2" Text="" Margin="5" Grid.Column="2" Grid.Row="4"/>
+                <Label x:Name="YearLabel" Content="Year" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Width="32" />
+                <Label x:Name="RankLabel" Content="Rank" Grid.Column="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Width="36" />
+
             </Grid>
         </GroupBox>
+
     </Grid>
 </Window>
