@@ -70,6 +70,9 @@ namespace _05___Baby_names
             }
 
             Top10listBox.ItemsSource = Top10BabyNames;
+
+            Top10listBox.Items.Refresh();
+
             Debug.WriteLine("Source changed!");
         }
 
