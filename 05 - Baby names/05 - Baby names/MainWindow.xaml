@@ -22,7 +22,7 @@
         <Label x:Name="DecadesLabel" Content="Decades" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="26" Width="55"/>
         <Label x:Name="Top10Label" Content="Top 10 baby names in selected decade" Grid.Column="1"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="26" Width="214"/>
         <ListBox x:Name="DecadeslistBox" Grid.Row="1" Margin="5" SelectionChanged="DecadeslistBox_OnSelectionChanged"/>
-        <ListBox x:Name="Top10listBox" Grid.Row="1" Grid.Column="1" Margin="5" SourceUpdated="Top10listBox_OnSourceUpdated"/>
+        <ListBox x:Name="Top10listBox" Grid.Row="1" Grid.Column="1" Margin="5" />
 
         <GroupBox x:Name="SearchGroupBox" Header="Search" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" >
             <Grid Margin="5">
