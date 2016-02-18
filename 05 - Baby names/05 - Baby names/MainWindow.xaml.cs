@@ -65,11 +65,16 @@ namespace _05___Baby_names
 
             // sort list by rank at given year
             Top20Babies.Sort((a, b) => a.Rank(y).CompareTo(b.Rank(y)));
-            
+
             // compile top 10 list with boy/girl pair as one entry
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
-                Top10BabyNames.Add(i + 1 + " " + Top20Babies[i].Name + " and " + Top20Babies[i + 1].Name);
+                Top10BabyNames.Add(i + " ");
+            }
+
+            for (int i = 0; i < 20; i++)
+            {
+                Top10BabyNames.Add(Top10BabyNames[i] += Top20Babies[i].Name + " and " + Top20Babies[i + 1].Name);
             }
 
             // set listbox source to top10 list
