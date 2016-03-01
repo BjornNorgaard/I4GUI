@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using I4GUI;
 
 namespace AgentAssignment
 {
@@ -23,6 +13,19 @@ namespace AgentAssignment
         public MainWindow()
         {
             InitializeComponent();
+
+            Binding id_binding = new Binding();
+            id_binding.Source = _agent;
+            id_binding.Path = new PropertyPath("_agent.Id");
+            IdTextBlock.SetBinding(TextBox.TextProperty, id_binding);
+        }
+
+        Agent _agent = new Agent("007", "James Bond", "Assasinations", "Danish Parlament");
+
+        private void IdTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _agent.Id = IdTextBox.Text;
+            IdTextBlock.Text = _agent.Id;
         }
     }
 }
