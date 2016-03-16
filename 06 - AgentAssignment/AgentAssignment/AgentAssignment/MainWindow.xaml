@@ -3,38 +3,64 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i4Gui="clr-namespace:I4GUI"
+        xmlns:local="clr-namespace:AgentAssignment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
-    <Grid Name="Grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="145*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="106*"/>
-            <ColumnDefinition Width="107*"/>
-            <ColumnDefinition Width="105*"/>
-            <ColumnDefinition Width="199*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="363.667" Width="522.667" Background="#FFEAEAEA">
+
+    <DockPanel Name="DockPanel">
+        <Menu DockPanel.Dock="Top" Name="MainMenu">
+            <MenuItem Header="_File">
+                <MenuItem Name="miFileExit" Header="E_xit" Command="Close"></MenuItem>
+            </MenuItem>
+            
+            <MenuItem Header="_Agents">
+                <MenuItem Header="_Previous" Command="{Binding PreviusCommand}"></MenuItem>
+                <MenuItem Header="_Next" Command="{Binding NextCommand}"></MenuItem>
+                <MenuItem Header="_Add new" Command="{Binding AddCommand}"></MenuItem>
+                <MenuItem Header="_Delete" Command="{Binding DeleteCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <Grid Name ="GridName" Margin="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="39"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="37"/>
+                <RowDefinition Height="37"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="97"/>
+                <ColumnDefinition Width="98"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Labels-->
+            <Label x:Name="IdLabel" Content="Id" Width="20" HorizontalAlignment="Left" Margin="5,7,0,7"  />
+            <Label x:Name="CodenameLabel" Content="Codename" Grid.Row="1" HorizontalAlignment="Left" Margin="5,7,0,7" VerticalAlignment="Center" Height="26"  Width="67" />
+            <Label x:Name="SpecialityLabel" Content="Speciality" Grid.Row="2" HorizontalAlignment="Left" Margin="5,7,0,7" VerticalAlignment="Center" Height="26"  Width="60" />
+            <Label x:Name="AssignmentLabel" Content="Assignment" Grid.Row="3" HorizontalAlignment="Left" Margin="5,6,0,7" VerticalAlignment="Center" Height="26"  Width="72" />
+
+            <!--Textboxes-->
+            <TextBox x:Name="IdTextBox" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Path=Id}" Margin="5,11"/>
+            <TextBox x:Name="CodenameTextBox" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Path=CodeName}" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" Height="18" Margin="5,11"/>
+            <TextBox x:Name="SpecialityTextBox" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Path=Speciality}" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Height="18" Margin="5,11"/>
+            <TextBox x:Name="AssignmentTextBox" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Path=Assignment}" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="5"/>
+
+            <!--Listbox-->
+            <ListBox x:Name="AgentListBox" Grid.Column="3" Grid.RowSpan="8" Margin="5" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" DisplayMemberPath="CodeName"/>
+
+            <!--Buttons-->
+            <Button x:Name="UpButton" Content="Up" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Bottom" Width="75" Margin="5" Click="UpButton_Click"/>
+            <Button x:Name="DownButton" Content="Down" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="6" VerticalAlignment="Top" Width="75" Margin="5" Click="DownButton_Click"/>
+            <Button x:Name="AddNewButton" Content="Add New" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Bottom" Width="75" Margin="5" Click="AddNewButton_Click"/>
+
+        </Grid>
         
-        <!--Labels-->
-        <Label x:Name="IdLabel" Content="Id" HorizontalAlignment="Left" Margin="5,9,0,9" VerticalAlignment="Center" Height="26" Width="20"/>
-        <Label x:Name="CodenameLabel" Content="Codename" HorizontalAlignment="Left" Margin="5,9,0,9" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="67"/>
-        <Label x:Name="SpecialityLabel" Content="Speciality" HorizontalAlignment="Left" Margin="5,9,0,9" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="60"/>
-        <Label x:Name="Assignmentlabel" Content="Assignment" HorizontalAlignment="Left" Margin="5,10,0,9" Grid.Row="3" VerticalAlignment="Center" Height="26" Width="72"/>
-        
-        <!--Textboxes-->
-        <TextBox x:Name="IdTextBox" Grid.Column="1" Height="24" Margin="5,10" TextWrapping="Wrap" Text="{Binding Path=(Id)}" VerticalAlignment="Center" />
-        <TextBox x:Name="CodenameTextBox" Grid.Column="1" Height="24" Margin="5,10" TextWrapping="Wrap" Text="{Binding Path=(CodeName)}" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="SpecialityTextBox" Grid.Column="1" Height="24" Margin="5,10" TextWrapping="Wrap" Text="{Binding Path=(Speciality)}" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="AssignmentTextBox" Grid.Column="1" Margin="5" TextWrapping="Wrap" Text="{Binding Path=(Assignment)}" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        
-        <!--Listbox-->
-        <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" DisplayMemberPath="CodeName" Name="ListBox" Grid.Column="3" Grid.RowSpan="5" Margin="5"></ListBox>
-        
-    </Grid>
+    </DockPanel>
+    
 </Window>
