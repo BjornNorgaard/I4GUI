@@ -29,6 +29,12 @@ namespace Dialogs
         private void Button_SpawnModalDialog(object sender, RoutedEventArgs e)
         {
             // dialog stuff
+            WindowModal dlg = new WindowModal();
+            dlg.Owner = this;
+            if (dlg.ShowDialog() == true)
+            {
+                // do stuff
+            }
         }
     }
 }
