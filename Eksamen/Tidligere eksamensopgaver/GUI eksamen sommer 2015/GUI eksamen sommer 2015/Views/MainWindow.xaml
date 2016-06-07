@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_eksamen_sommer_2015"
         mc:Ignorable="d"
-        Title="Med Assist 3000" Height="314" Width="276.744">
+        Title="Med Assist 3000" Height="314" Width="276.744"
+        Background="Beige">
     <StackPanel Margin="5">
 
 
         <!--Ting som skal være over listviewet-->
-        <Button x:Name="CreateButton" Content="Opret skema"></Button>
+        <Button x:Name="CreateButton" Content="Opret skema" Click="CreateButton_Click"></Button>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -42,6 +43,7 @@
         
         <!--Knapper etc, som skal være under listviewet-->
         <Button Name="ShowLogBtn" Content="Vis Log" Margin="0,5,0,0" VerticalAlignment="Bottom"></Button>
-        
+        <Viewbox Height="100"/>
+
     </StackPanel>
 </Window>
