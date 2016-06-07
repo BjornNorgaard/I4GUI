@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dialogs.Properties
+namespace GUI_eksamen_sommer_2015.Properties
 {
 
 
@@ -18,8 +18,6 @@ namespace Dialogs.Properties
     {
 
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        private string _stringProperty;
-        private int _integerProperty;
 
         public static Settings Default
         {
@@ -27,18 +25,6 @@ namespace Dialogs.Properties
             {
                 return defaultInstance;
             }
-        }
-
-        public string StringProperty
-        {
-            get { return _stringProperty; }
-            set { _stringProperty = value; }
-        }
-
-        public int IntegerProperty
-        {
-            get { return _integerProperty; }
-            set { _integerProperty = value; }
         }
     }
 }

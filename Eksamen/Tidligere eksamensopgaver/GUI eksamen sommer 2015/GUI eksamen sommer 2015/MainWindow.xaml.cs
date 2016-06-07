@@ -12,29 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Win32;
 
-namespace Dialogs
+namespace GUI_eksamen_sommer_2015
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Tuple<DateTime, string>> _medList = new List<Tuple<DateTime, string>>();
+
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void Button_SpawnModalDialog(object sender, RoutedEventArgs e)
-        {
-            // dialog stuff
-            WindowModal dlg = new WindowModal();
-            dlg.Owner = this;
-            if (dlg.ShowDialog() == true)
-            {
-                // do stuff
-            }
-        }
+        
     }
 }

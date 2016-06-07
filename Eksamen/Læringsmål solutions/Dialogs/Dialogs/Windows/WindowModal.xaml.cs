@@ -19,9 +19,20 @@ namespace Dialogs
     /// </summary>
     public partial class WindowModal : Window
     {
+        public string StringProperty { get; set; }
+        public int IntegerProperty { get; set; }
+
         public WindowModal()
         {
             InitializeComponent();
+
+            StringProperty = "Hello World!";
+            IntegerProperty = 42;
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }
