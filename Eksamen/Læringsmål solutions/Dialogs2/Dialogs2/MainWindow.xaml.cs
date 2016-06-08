@@ -40,8 +40,8 @@ namespace Dialogs2
                 Properties.Settings.Default.testInt = dlg.IntThing;
             }
 
-            StringBlock.Text = Properties.Settings.Default.testString;
-            IntBlock.Text = Properties.Settings.Default.testInt.ToString();
+            //StringBlock.Text = Properties.Settings.Default.testString;
+            //IntBlock.Text = Properties.Settings.Default.testInt.ToString();
         }
 
         private void ModelessButton_Click(object sender, RoutedEventArgs e)
@@ -70,8 +70,8 @@ namespace Dialogs2
             Properties.Settings.Default.testString = dlg.stringThing;
             Properties.Settings.Default.testInt = dlg.intThing;
 
-            StringBlock.Text = Properties.Settings.Default.testString;
-            IntBlock.Text = Properties.Settings.Default.testInt.ToString();
+            //StringBlock.Text = Properties.Settings.Default.testString;
+            //IntBlock.Text = Properties.Settings.Default.testInt.ToString();
         }
 
         private void Modeless_Closed(object sender, EventArgs e)
