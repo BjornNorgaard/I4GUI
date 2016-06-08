@@ -29,9 +29,19 @@ namespace Dialogs2
 
         public string stringThing { get; set; }
         public int intThing { get; set; }
-        
+
         private void ButtonApply_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                stringThing = stringBox.Text;
+                intThing = int.Parse(intBox.Text.ToString());
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("This happened: " + exception);
+            }
+
             Apply?.Invoke(this, null);
         }
 

@@ -67,8 +67,8 @@ namespace Dialogs2
         {
             ModelessWindow dlg = (ModelessWindow) sender;
 
-            Properties.Settings.Default.testString = _modelessWindow.stringThing;
-            Properties.Settings.Default.testInt = _modelessWindow.intThing;
+            Properties.Settings.Default.testString = dlg.stringThing;
+            Properties.Settings.Default.testInt = dlg.intThing;
 
             StringBlock.Text = Properties.Settings.Default.testString;
             IntBlock.Text = Properties.Settings.Default.testInt.ToString();
