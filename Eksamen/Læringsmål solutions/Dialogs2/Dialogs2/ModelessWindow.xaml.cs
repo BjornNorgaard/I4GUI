@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,24 @@ namespace Dialogs2
         public ModelessWindow()
         {
             InitializeComponent();
+        }
+
+        public event EventHandler Apply;
+
+        private void ButtonApply_Click(object sender, RoutedEventArgs e)
+        {
+            Apply?.Invoke(this, null);
+        }
+
+        private void ButtonOK_Click(object sender, RoutedEventArgs e)
+        {
+            Apply?.Invoke(this, null);
+            Close();
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
