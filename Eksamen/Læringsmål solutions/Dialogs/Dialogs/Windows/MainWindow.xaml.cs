@@ -54,11 +54,11 @@ namespace Dialogs
 
         private void Button_SpawnModelessDialog(object sender, RoutedEventArgs e)
         {
-            // dialog stuff
-            WindowModal dlg = new WindowModal();
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            dlg.Owner = this;
-            dlg.Show();
+            //// dialog stuff
+            //WindowModal dlg = new WindowModal();
+            //dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            //dlg.Owner = this;
+            //dlg.Show();
         }
     }
 }
