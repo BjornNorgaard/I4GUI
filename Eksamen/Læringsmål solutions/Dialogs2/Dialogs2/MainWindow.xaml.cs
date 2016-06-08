@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -24,8 +25,15 @@ namespace Dialogs2
         public MainWindow()
         {
             InitializeComponent();
+
+            Closing += MainWindow_Closing;
         }
 
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+        
         private ModelessWindow _modelessWindow = null;
 
         private void ModalButton_Click(object sender, RoutedEventArgs e)
