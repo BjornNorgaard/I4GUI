@@ -21,9 +21,9 @@
         </StackPanel>
         
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" >
-            <Button x:Name="ButtonCancel" Content="Cancel" MinWidth="60" Click="ButtonCancel_Click"></Button>
+            <Button x:Name="ButtonCancel" IsCancel="True" Content="Cancel" MinWidth="60" Click="ButtonCancel_Click"></Button>
             <Button x:Name="ButtonApply" Content="Apply"  MinWidth="60" Margin="70,0,0,0" Click="ButtonApply_Click"></Button>
-            <Button x:Name="ButtonOK" Content="OK"  MinWidth="60" Margin="10,0,0,0" Click="ButtonOK_Click"></Button>
+            <Button x:Name="ButtonOK" IsDefault="True" Content="OK"  MinWidth="60" Margin="10,0,0,0" Click="ButtonOK_Click"></Button>
         </StackPanel>
         
     </Grid>
