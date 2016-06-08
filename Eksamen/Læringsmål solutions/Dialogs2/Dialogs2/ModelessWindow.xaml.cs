@@ -27,6 +27,9 @@ namespace Dialogs2
 
         public event EventHandler Apply;
 
+        public string stringThing { get; set; }
+        public int intThing { get; set; }
+        
         private void ButtonApply_Click(object sender, RoutedEventArgs e)
         {
             Apply?.Invoke(this, null);
@@ -34,7 +37,7 @@ namespace Dialogs2
 
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
-            Apply?.Invoke(this, null);
+            ButtonApply_Click(this, null);
             Close();
         }
 

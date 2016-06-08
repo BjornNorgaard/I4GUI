@@ -26,6 +26,8 @@ namespace Dialogs2
             InitializeComponent();
         }
 
+        private ModelessWindow _modelessWindow = null;
+
         private void ModalButton_Click(object sender, RoutedEventArgs e)
         {
             ModalWindow dlg = new ModalWindow();
@@ -44,13 +46,38 @@ namespace Dialogs2
 
         private void ModelessButton_Click(object sender, RoutedEventArgs e)
         {
-            //ModalWindow dlg = new ModalWindow();
-            //dlg.Owner = this;
-            //dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            //dlg.Show();
+            if (_modelessWindow != null) _modelessWindow.Focus();
+            else
+            {
+                _modelessWindow = new ModelessWindow();
+                _modelessWindow.Owner = this;
+                _modelessWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-            //StringBlock.Text = Properties.Settings.Default.testString;
-            //IntBlock.Text = Properties.Settings.Default.testInt.ToString();
+                _modelessWindow.stringThing = Properties.Settings.Default.testString;
+                _modelessWindow.intThing = Properties.Settings.Default.testInt;
+
+                _modelessWindow.Apply += Modeless_Apply;
+                _modelessWindow.Closing += Modeless_Closed;
+
+                _modelessWindow.Show();
+            }
+        }
+
+        private void Modeless_Apply(object sender, EventArgs e)
+        {
+            ModelessWindow dlg = (ModelessWindow) sender;
+
+            Properties.Settings.Default.testString = _modelessWindow.stringThing;
+            Properties.Settings.Default.testInt = _modelessWindow.intThing;
+
+            StringBlock.Text = Properties.Settings.Default.testString;
+            IntBlock.Text = Properties.Settings.Default.testInt.ToString();
+        }
+
+        private void Modeless_Closed(object sender, EventArgs e)
+        {
+            _modelessWindow = null;
+            Focus();
         }
     }
 }
