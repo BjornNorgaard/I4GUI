@@ -2,10 +2,31 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:RessourcesStyles">
     
+    
+    <!--Beginning of styles-->
     <Style TargetType="{x:Type Button}">
         <Setter Property="Background" Value="SeaGreen" />
         <Setter Property="Foreground" Value="AliceBlue" />
         <Setter Property="Margin" Value="5"></Setter>
     </Style>
+    
+    <Style TargetType="{x:Type Image}">
+        <Setter Property="Opacity" Value="10"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Courier New"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="AntiqueWhite"></Setter>
+    </Style>
+    <!--End of styles-->
+    
+
+    <!--Begin something else-->
+    <SolidColorBrush x:Key="myBrush" Color="Coral"></SolidColorBrush>
+    <!--End something else-->
     
 </ResourceDictionary>

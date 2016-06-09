@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RessourcesStyles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="97*"/>
@@ -20,10 +21,17 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="This is a bird:" Grid.Column="1" VerticalAlignment="Bottom" FontSize="30" Grid.ColumnSpan="2"></TextBlock>
-        <Image x:Name="image" Grid.Column="1" Grid.Row="1" Source="fugl.jpg" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" />
+        <Image x:Name="image" Grid.Column="1" Grid.Row="1" Source="fugl.jpg" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="1" >
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
 
-        
-        <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Text="This is a button:" />
+
+        <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Text="This is a button:" FontFamily="Courier New" />
         <Button Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Content="Herro pree!"></Button>
         
     </Grid>
