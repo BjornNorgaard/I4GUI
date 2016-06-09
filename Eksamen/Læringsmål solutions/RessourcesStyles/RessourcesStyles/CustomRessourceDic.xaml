@@ -8,4 +8,17 @@
         <Setter Property="Margin" Value="5"></Setter>
     </Style>
     
+    <Style TargetType="{x:Type Image}">
+        <Setter Property="Opacity" Value="10"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Courier New"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="AntiqueWhite"></Setter>
+    </Style>
+    
 </ResourceDictionary>
