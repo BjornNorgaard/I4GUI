@@ -11,18 +11,20 @@ namespace JsonSerializer.Application
     {
         static void Main(string[] args)
         {
-            JsonSerializer js = new JsonSerializer();
+            JsonSerializer<Produkt> js = new JsonSerializer<Produkt>();
 
-            //Produkt produkt1 = new Produkt() {Name = "Somename", Height = 188, Id = 2, Weight = 89};
-            //Produkt produkt2 = new Produkt() {Name = "kuygkuyg", Height = 1888, Id = 72, Weight = 899};
-            //Produkt produkt3 = new Produkt() {Name = "Somekuygkuygname", Height = 1888, Id = 26, Weight = 879};
+            //Produkt produkt1 = new Produkt() { Name = "Bjorn", Height = 188, Id = 2, Weight = 89 };
+            //Produkt produkt2 = new Produkt() { Name = "Joachim", Height = 1888, Id = 72, Weight = 899 };
+            //Produkt produkt3 = new Produkt() { Name = "Someguy", Height = 1888, Id = 26, Weight = 879 };
 
             //List<Produkt> produkts = new List<Produkt>();
             //produkts.Add(produkt1);
             //produkts.Add(produkt2);
             //produkts.Add(produkt3);
 
-            //js.Serialize(produkts);
+            //js.SerializeCollection(produkts);
+
+            //js.AddToSerializedCollection(new Produkt() { Height = 98, Id = 9, Name = "hans", Weight = 9 });
 
             foreach (Produkt produkt in js.Deserialize())
             {
