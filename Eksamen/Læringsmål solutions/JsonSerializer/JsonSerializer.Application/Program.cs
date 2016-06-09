@@ -11,7 +11,7 @@ namespace JsonSerializer.Application
     {
         static void Main(string[] args)
         {
-            JsonSerializer<Produkt> js = new JsonSerializer<Produkt>();
+            JsonSerializer<Produkt> js = new JsonSerializer<Produkt>("products");
 
             //Produkt produkt1 = new Produkt() { Name = "Bjorn", Height = 188, Id = 2, Weight = 89 };
             //Produkt produkt2 = new Produkt() { Name = "Joachim", Height = 1888, Id = 72, Weight = 899 };

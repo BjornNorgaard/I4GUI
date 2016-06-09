@@ -12,19 +12,28 @@ using System.Windows.Forms;
 
 namespace JsonSerializer
 {
-    public class JsonSerializer<T>
+    public class JsonSerializer<T> : IJsonSerializer<T>
     {
         #region Properties and Members
 
-        private string _filename = "\\products.json";
+        private string _filename = "\\unnamed.json";
 
-        public string Filename
+        private string Filename
         {
             get { return _filename; }
-            set { _filename = "\\" + value; }
+            set { _filename = "\\" + value + ".json"; }
         }
 
         #endregion
+
+        /// <summary>
+        /// Constructor for class, takes one argument.
+        /// </summary>
+        /// <param name="nameOfJsonFileToCreate">Name of file to create, without fileextension.</param>
+        public JsonSerializer(string nameOfJsonFileToCreate)
+        {
+            Filename = nameOfJsonFileToCreate;
+        }
 
         #region Serialize + Overloads
 
