@@ -26,10 +26,12 @@ namespace JsonSerializer.Application
 
             //js.AddToSerializedCollection(new Produkt() { Height = 98, Id = 9, Name = "hans", Weight = 9 });
 
-            foreach (Produkt produkt in js.Deserialize())
-            {
-                Console.WriteLine(produkt.Name);
-            }
+            js.Deserialize();
+
+            //foreach (Produkt produkt in js.Deserialize())
+            //{
+            //    Console.WriteLine(produkt.Name);
+            //}
         }
     }
 }
