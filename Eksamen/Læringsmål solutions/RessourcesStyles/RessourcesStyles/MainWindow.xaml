@@ -34,6 +34,10 @@
         <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Text="This is a button:" FontFamily="Courier New" />
         <Button Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Content="Herro pree!"></Button>
 
+        <StackPanel Grid.Row="1">
+            <TextBlock>Hello:</TextBlock>
+        </StackPanel>
+        
     </Grid>
 </Window>
 

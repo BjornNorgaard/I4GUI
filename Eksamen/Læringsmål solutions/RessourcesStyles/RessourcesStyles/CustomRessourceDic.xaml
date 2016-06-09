@@ -17,7 +17,7 @@
         <Setter Property="FontFamily" Value="Courier New"></Setter>
     </Style>
 
-    <Style TargetType="{x:Type Window}">
+    <Style TargetType="{x:Type Grid}">
         <Setter Property="Background" Value="AntiqueWhite"></Setter>
     </Style>
     
