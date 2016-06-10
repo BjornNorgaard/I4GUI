@@ -20,7 +20,11 @@
 
             
             <!--Visning af kommende-->
-            
+            <GroupBox Header="Kommende">
+                <ListView>
+                    
+                </ListView>
+            </GroupBox>
             <!--Visning af kommende-->
 
 
