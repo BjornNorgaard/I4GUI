@@ -24,8 +24,8 @@
             <TextBlock x:Name="tbStatus" Margin="5" Text="Task not started"></TextBlock>
         </StackPanel>
 
-        <ProgressBar x:Name="pb" Grid.Column="1" Grid.Row="2"
-                     Margin="5"></ProgressBar>
-        
+        <ProgressBar x:Name="pb" Grid.Column="1" Grid.Row="2" Margin="5"
+                     Minimum="0" Maximum="100"></ProgressBar>
+
     </Grid>
 </Window>
