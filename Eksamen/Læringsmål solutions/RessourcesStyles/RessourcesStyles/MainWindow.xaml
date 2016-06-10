@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RessourcesStyles"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        >
+        Style="{StaticResource MyWindowStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="97*"/>
