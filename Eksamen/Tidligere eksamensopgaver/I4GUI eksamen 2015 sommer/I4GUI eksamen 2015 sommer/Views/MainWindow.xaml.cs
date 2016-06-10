@@ -56,7 +56,5 @@ namespace I4GUI_eksamen_2015_sommer
                 jsonSerializer.SerializeObject(infoTuple);
             }
         }
-
-
     }
 }

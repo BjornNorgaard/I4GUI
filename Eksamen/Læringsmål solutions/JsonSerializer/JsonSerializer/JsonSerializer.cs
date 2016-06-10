@@ -34,11 +34,14 @@ namespace JsonSerializer
         {
             Filename = nameOfJsonFileToCreate;
 
-            // creating empty file to prevent crash when trying to read before creating file
-            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename))
+            //// creating empty file to prevent crash when trying to read before creating file
+            if (File.Exists(Directory.GetCurrentDirectory() + Filename) == false)
             {
-                sw.Write("");
-                sw.Close();
+                using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename))
+                {
+                    sw.Write("");
+                    sw.Close();
+                }
             }
         }
 
@@ -117,7 +120,7 @@ namespace JsonSerializer
         public List<T> Deserialize()
         {
             string alreadySerializedContentOfJsonFile;
-
+            
             try
             {
                 alreadySerializedContentOfJsonFile = File.ReadAllText(Directory.GetCurrentDirectory() + Filename);
@@ -128,10 +131,10 @@ namespace JsonSerializer
                 throw;
             }
 
-            //if (alreadySerializedContentOfJsonFile == "")
-            //{
-            //    return new List<T>();
-            //}
+            if (alreadySerializedContentOfJsonFile == "")
+            {
+                return new List<T>();
+            }
 
             List<T> listOfDeserializedObjectToBeReturned = JsonConvert.DeserializeObject<List<T>>(alreadySerializedContentOfJsonFile);
 
