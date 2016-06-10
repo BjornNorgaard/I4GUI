@@ -128,10 +128,10 @@ namespace JsonSerializer
                 throw;
             }
 
-            if (alreadySerializedContentOfJsonFile == "")
-            {
-                return new List<T>();
-            }
+            //if (alreadySerializedContentOfJsonFile == "")
+            //{
+            //    return new List<T>();
+            //}
 
             List<T> listOfDeserializedObjectToBeReturned = JsonConvert.DeserializeObject<List<T>>(alreadySerializedContentOfJsonFile);
 

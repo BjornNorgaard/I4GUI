@@ -1,0 +1,20 @@
+﻿<Window x:Class="I4GUI_eksamen_2015_sommer.CreatePlan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:I4GUI_eksamen_2015_sommer"
+        mc:Ignorable="d"
+        Title="Opret skema" Height="200.582" Width="214.535">
+    <Grid>
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="Tidspunkt:"></TextBlock>
+            <TextBox x:Name="textBoxTime" Text="" ToolTip="På format: hh.mm"></TextBox>
+            <TextBlock Text="Beskrivelse:"></TextBlock>
+            <TextBox x:Name="textBoxDesc" ToolTip="Indtast beskrivelse af medicin" MinHeight="50"></TextBox>
+            
+            <Button Content="OK" IsDefault="True" VerticalAlignment="Bottom" Click="Btn_OK_Clicked"></Button>
+            <Button Content="Cancel" IsCancel="True" VerticalAlignment="Bottom"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
