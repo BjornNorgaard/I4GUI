@@ -14,12 +14,11 @@
             <!--Menu and items-->
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_Opret" Click="MenuItem_Opret_Clicked"></MenuItem>
-                <MenuItem Header="_Taget"></MenuItem>
-                <MenuItem Header="_Glemt"></MenuItem>
+                <MenuItem Header="_Luk" Click="MenuItem_OnClick"></MenuItem>
             </Menu>
             <!--Menu and items-->
 
-
+            
             <!--Visning af kommende-->
             
             <!--Visning af kommende-->
