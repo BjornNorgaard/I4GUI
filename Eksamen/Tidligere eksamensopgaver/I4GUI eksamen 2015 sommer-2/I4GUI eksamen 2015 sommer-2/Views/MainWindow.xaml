@@ -1,0 +1,74 @@
+﻿<Window x:Class="I4GUI_eksamen_2015_sommer_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:I4GUI_eksamen_2015_sommer_2.Views"
+        mc:Ignorable="d"
+        Title="Drug Helper 2000" Height="248" Width="307.708"
+        Style="{StaticResource WindowStyle}"
+        SizeToContent="Height">
+    <!--<Window.Resources>
+        <views:Plan x:Key="Plan"/>
+        <views:Plan x:Key="Log" />
+    </Window.Resources>-->
+    <Grid>
+        
+        
+        <!--Stackpanel goes here-->
+        <StackPanel>
+            
+            
+            <Menu>
+                <MenuItem Header="_Opret" Click="MenuItem_Opret_OnClick"></MenuItem>
+                <MenuItem Header="_Tag" Click="MenuItem_Tag_OnClick"></MenuItem>
+                <MenuItem Header="_Luk" Click="MenuItem_Luk_OnClick"></MenuItem>
+            </Menu>
+            
+            
+            <!--Upcomming things goes here-->
+            <GroupBox Header="Kommende">
+                <ListView Name="lstPlan"
+                         ItemsSource="{Binding Source={StaticResource Plan}}"
+                         Margin="5" MinHeight="50">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                           <WrapPanel>
+                               <TextBlock Text="{Binding Path=Time, StringFormat=t}" MinWidth="80"></TextBlock>
+                               <TextBlock Text="{Binding Path=Description}"></TextBlock>
+                           </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </GroupBox>
+            <!--Upcomming things goes here-->
+            
+            
+            <!--Test thing for log stuff-->
+            <!--<GroupBox Header="Log">
+                <ListView Name="lstLog" 
+                         ItemsSource="{Binding Source={StaticResource Log}}"
+                         Margin="5" MinHeight="50">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Path=Time}" MinWidth="80"></TextBlock>
+                                <TextBlock Text="{Binding Path=Description}"></TextBlock>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </GroupBox>-->
+            <!--Test thing for log stuff-->
+            
+            
+            <Button Content="Se log" Click="ButtonBase_ViewLog_OnClick"></Button>
+            
+            
+        </StackPanel>
+        <!--Stackpanel goes here-->
+        
+        
+    </Grid>
+</Window>
+

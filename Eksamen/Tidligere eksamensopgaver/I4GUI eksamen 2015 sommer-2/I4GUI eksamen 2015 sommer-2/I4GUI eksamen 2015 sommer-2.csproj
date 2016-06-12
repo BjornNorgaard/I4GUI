@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F09C5694-FA61-4DAD-9EEC-A26E12EE0677}</ProjectGuid>
+    <ProjectGuid>{174732D8-5F3A-4F72-A9DA-05996B3E179F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>I4GUI_eksamen_2015_sommer</RootNamespace>
-    <AssemblyName>I4GUI eksamen 2015 sommer</AssemblyName>
+    <RootNamespace>I4GUI_eksamen_2015_sommer_2</RootNamespace>
+    <AssemblyName>I4GUI eksamen 2015 sommer-2</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -58,8 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Upcomming.cs" />
-    <Page Include="Views\CreatePlan.xaml">
+    <Compile Include="Models\Plan.cs" />
+    <Compile Include="Models\PlanItem.cs" />
+    <Page Include="CustomResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreatePlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,8 +80,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\CreatePlan.xaml.cs">
-      <DependentUpon>CreatePlan.xaml</DependentUpon>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Views\CreatePlanWindow.xaml.cs">
+      <DependentUpon>CreatePlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -106,6 +119,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,22 +10,23 @@
     <Grid>
         
         
+           <StackPanel>
             <!--Menu and items-->
             <Menu >
                 <MenuItem Header="_Opret" Click="MenuItem_Opret_Clicked"></MenuItem>
+                <MenuItem Header="_Tag" Click="MenuItem_Tag_Clicked"></MenuItem>
                 <MenuItem Header="_Luk" Click="MenuItem_OnClick"></MenuItem>
             </Menu>
             <!--Menu and items-->
 
-            
-            
+
+
             <!--Visning af kommende-->
-            <GroupBox Header="Kommende">
-                <ListView>
-                    
-                </ListView>
+            <GroupBox Header="Kommende" MinHeight="100">
+                
             </GroupBox>
             <!--Visning af kommende-->
+        </StackPanel>
 
     </Grid>
 </Window>

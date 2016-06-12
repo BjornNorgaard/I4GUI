@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace I4GUI_eksamen_2015_sommer
     public partial class MainWindow : Window
     {
         JsonSerializer<Tuple<DateTime, string>> jsonSerializer = new JsonSerializer<Tuple<DateTime, string>>("medicinplan");
-        private List<Tuple<DateTime, string>> currentPlan = new List<Tuple<DateTime, string>>();
+        Upcomming _upcomming = new Upcomming();
 
         public MainWindow()
         {
@@ -34,13 +33,13 @@ namespace I4GUI_eksamen_2015_sommer
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            currentPlan = jsonSerializer.Deserialize();
+            _upcomming.currentPlan = jsonSerializer.Deserialize();
         }
 
         private void OnClosing(object sender, CancelEventArgs cancelEventArgs)
         {
             Properties.Settings.Default.Save();
-            jsonSerializer.OverwriteSerializeCollectionWithOtherCollection(currentPlan);
+            jsonSerializer.OverwriteSerializeCollectionWithOtherCollection(_upcomming.currentPlan);
         }
 
         private void MenuItem_Opret_Clicked(object sender, RoutedEventArgs e)
@@ -52,7 +51,7 @@ namespace I4GUI_eksamen_2015_sommer
             if (dlg.ShowDialog() == true)
             {
                 Tuple<DateTime, string> infoTuple = new Tuple<DateTime, string>(dlg.MedTime, dlg.MedDescription);
-                currentPlan.Add(infoTuple);
+                _upcomming.currentPlan.Add(infoTuple);
                 jsonSerializer.SerializeObject(infoTuple);
             }
         }
@@ -60,6 +59,10 @@ namespace I4GUI_eksamen_2015_sommer
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void MenuItem_Tag_Clicked(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
