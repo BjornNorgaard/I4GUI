@@ -32,7 +32,6 @@ namespace I4GUI_eksamen_2015_sommer_2.Views
             try
             {
                 _planItem.Time = DateTime.ParseExact(tbxTime.Text, "HHmm", CultureInfo.InvariantCulture);
-
                 _planItem.Description = tbxDesc.Text;
 
                 DialogResult = true;

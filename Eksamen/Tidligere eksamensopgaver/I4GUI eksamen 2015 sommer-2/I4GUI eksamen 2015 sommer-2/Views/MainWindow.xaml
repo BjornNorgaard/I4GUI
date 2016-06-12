@@ -27,15 +27,13 @@
             <!--Upcomming things goes here-->
             <GroupBox Header="Kommende">
                 <ListView Name="lstPlan" 
-                         ItemsSource="{Binding Source={StaticResource Plan}}"
-                         IsSynchronizedWithCurrentItem="True"
-                         Margin="5"
-                         MinHeight="50"
-                         Height="Auto">
+                         ItemsSource="{Binding Source={StaticResource Plan},
+                    PresentationTraceSources.TraceLevel=High}"
+                         Margin="5" MinHeight="50">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                            <WrapPanel>
-                               <TextBlock Text="{Binding Path=Time}" MinWidth="50"></TextBlock>
+                               <TextBlock Text="{Binding Path=Time}" MinWidth="160"></TextBlock>
                                <TextBlock Text="{Binding Path=Description}"></TextBlock>
                            </WrapPanel>
                         </DataTemplate>
