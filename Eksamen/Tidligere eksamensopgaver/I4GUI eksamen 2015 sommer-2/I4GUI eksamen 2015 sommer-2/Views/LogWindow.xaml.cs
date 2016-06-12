@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,12 @@ namespace I4GUI_eksamen_2015_sommer_2.Views
         {
             InitializeComponent();
             _log = (Plan)FindResource("Log");
+            Closing += Before_Closing;
+        }
 
+        private void Before_Closing(object sender, CancelEventArgs e)
+        {
+            OnClose();
         }
 
         private void ButtonBase_Close_OnClick(object sender, RoutedEventArgs e)
