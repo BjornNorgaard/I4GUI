@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using JsonSerializer;
 
 namespace I4GUI_eksamen_2015_sommer_2.Views
 {
@@ -20,21 +21,21 @@ namespace I4GUI_eksamen_2015_sommer_2.Views
     /// </summary>
     public partial class CreatePlanWindow : Window
     {
-        public PlanItem newPlanItem { get; set; }
+        public PlanItem NewPlanItem { get; set; }
 
         public CreatePlanWindow()
         {
             InitializeComponent();
-
-            newPlanItem = new PlanItem();
         }
 
         private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
+            NewPlanItem = new PlanItem();
+
             try
             {
-                newPlanItem.Time = DateTime.ParseExact(tbxTime.Text, "HHmm", CultureInfo.InvariantCulture);
-                newPlanItem.Description = tbxDesc.Text;
+                NewPlanItem.Time = DateTime.ParseExact(tbxTime.Text, "HHmm", CultureInfo.InvariantCulture);
+                NewPlanItem.Description = tbxDesc.Text;
                 DialogResult = true;
             }
             catch (Exception exception)

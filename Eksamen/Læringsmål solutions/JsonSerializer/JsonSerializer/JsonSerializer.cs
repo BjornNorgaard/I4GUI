@@ -87,7 +87,7 @@ namespace JsonSerializer
         /// <param name="collectionOfObjects">List of objects to be serialized in file.</param>
         public void SerializeCollection(List<T> collectionOfObjects)
         {
-            List<T> listOfPreviouslySerializedObjects = Deserialize();
+            List<T> listOfPreviouslySerializedObjects = DeserializeCollection();
 
             foreach (T item in collectionOfObjects)
             {
@@ -103,7 +103,7 @@ namespace JsonSerializer
         /// <param name="productToSerialize">Single object to be serialized and added til file.</param>
         public void SerializeObject(T productToSerialize)
         {
-            List<T> listOfPreviouslySerializedObjects = Deserialize();
+            List<T> listOfPreviouslySerializedObjects = DeserializeCollection();
             listOfPreviouslySerializedObjects.Add(productToSerialize);
 
             OverwriteSerializeCollectionWithOtherCollection(listOfPreviouslySerializedObjects);
@@ -117,7 +117,7 @@ namespace JsonSerializer
         /// Returns content of .json file.
         /// </summary>
         /// <returns>List containing all serialized objects.</returns>
-        public List<T> Deserialize()
+        public List<T> DeserializeCollection()
         {
             string alreadySerializedContentOfJsonFile;
             
@@ -139,6 +139,30 @@ namespace JsonSerializer
             List<T> listOfDeserializedObjectToBeReturned = JsonConvert.DeserializeObject<List<T>>(alreadySerializedContentOfJsonFile);
 
             return listOfDeserializedObjectToBeReturned;
+        }
+
+        public T DeserializeObject()
+        {
+            string alreadySerializedContentOfJsonFile;
+
+            try
+            {
+                alreadySerializedContentOfJsonFile = File.ReadAllText(Directory.GetCurrentDirectory() + Filename);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("While trying to read the file, i found an exception:\n\n " + e);
+                throw;
+            }
+
+            if (alreadySerializedContentOfJsonFile == "")
+            {
+                throw new NullReferenceException("Shit was empty!");
+            }
+
+            T deserializedObjectToBeReturned = JsonConvert.DeserializeObject<T>(alreadySerializedContentOfJsonFile);
+
+            return deserializedObjectToBeReturned;
         }
 
         #endregion

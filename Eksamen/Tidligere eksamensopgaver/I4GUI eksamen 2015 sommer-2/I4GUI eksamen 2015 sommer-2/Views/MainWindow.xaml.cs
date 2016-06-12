@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using I4GUI_eksamen_2015_sommer_2.Views;
+using JsonSerializer;
 
 namespace I4GUI_eksamen_2015_sommer_2
 {
@@ -24,12 +25,19 @@ namespace I4GUI_eksamen_2015_sommer_2
     {
         private Plan _plan;
         private Plan _log;
+        
+        private LogWindow _logWindow;
 
         public MainWindow()
         {
             InitializeComponent();
+            
             _plan = (Plan)FindResource("Plan");
-            _log = (Plan) FindResource("Log");
+            _log = (Plan)FindResource("Log");
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
         }
 
         private void MenuItem_Opret_OnClick(object sender, RoutedEventArgs e)
@@ -40,13 +48,17 @@ namespace I4GUI_eksamen_2015_sommer_2
 
             if (dlg.ShowDialog() == true)
             {
-                _plan.Add(dlg.newPlanItem);
+                _plan.Add(dlg.NewPlanItem);
             }
         }
 
         private void MenuItem_Tag_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            // insert in log
+            _log.Add(_plan.First());
+
+            // remove from plan
+            _plan.Remove(_plan.First());
         }
 
         private void MenuItem_Luk_OnClick(object sender, RoutedEventArgs e)
@@ -56,7 +68,23 @@ namespace I4GUI_eksamen_2015_sommer_2
 
         private void ButtonBase_ViewLog_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            if (_logWindow != null) _logWindow.Focus();
+            else
+            {
+                _logWindow = new LogWindow();
+                _logWindow.Owner = this;
+                _logWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+                _logWindow.CloseClicked += Log_Closed;
+
+                _logWindow.Show();
+            }
+        }
+
+        private void Log_Closed(object sender, EventArgs e)
+        {
+            _logWindow = null;
+            Focus();
         }
     }
 }

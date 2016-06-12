@@ -1,0 +1,43 @@
+﻿<Window x:Class="I4GUI_eksamen_2015_sommer_2.Views.LogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:I4GUI_eksamen_2015_sommer_2.Views"
+        mc:Ignorable="d"
+        Title="Log" Height="300" Width="300"
+        Style="{StaticResource WindowStyle}"
+        SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <local:Plan x:Key="Log" />
+    </Window.Resources>
+    <Grid>
+
+
+        <StackPanel>
+            
+            
+            <GroupBox Header="Log">
+                <ListView Name="lstLog" 
+                         ItemsSource="{Binding Source={StaticResource Log}}"
+                         Margin="5" MinHeight="50">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Path=Time}" MinWidth="180"></TextBlock>
+                                <TextBlock Text="{Binding Path=Description}"></TextBlock>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </GroupBox>
+
+            
+            <Button Content="Close" Click="ButtonBase_Close_OnClick"></Button>
+
+
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>

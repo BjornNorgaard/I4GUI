@@ -41,7 +41,7 @@ namespace JsonSerializer.Application
 
             //js.Deserialize();
 
-            foreach (Produkt produkt in js.Deserialize())
+            foreach (Produkt produkt in js.DeserializeCollection())
             {
                 Console.WriteLine(produkt.Name);
             }
