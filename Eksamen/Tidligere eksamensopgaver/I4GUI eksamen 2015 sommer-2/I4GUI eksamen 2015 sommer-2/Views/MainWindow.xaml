@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:I4GUI_eksamen_2015_sommer_2.Views"
         mc:Ignorable="d"
-        Title="Drug Helper 2000" Height="350" Width="307.708"
+        Title="Drug Helper 2000" Height="248" Width="307.708"
         Style="{StaticResource WindowStyle}"
-        SizeToContent="Height"
-        Loaded="MainWindow_OnLoaded">
+        SizeToContent="Height">
     <!--<Window.Resources>
         <views:Plan x:Key="Plan"/>
         <views:Plan x:Key="Log" />
@@ -29,7 +28,7 @@
             
             <!--Upcomming things goes here-->
             <GroupBox Header="Kommende">
-                <ListView Name="lstPlan" 
+                <ListView Name="lstPlan"
                          ItemsSource="{Binding Source={StaticResource Plan}}"
                          Margin="5" MinHeight="50">
                     <ListView.ItemTemplate>

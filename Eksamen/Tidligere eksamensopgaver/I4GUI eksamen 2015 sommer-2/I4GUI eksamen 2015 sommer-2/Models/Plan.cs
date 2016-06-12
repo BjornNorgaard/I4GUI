@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace I4GUI_eksamen_2015_sommer_2.Views
 {
-    public class Plan : ObservableCollection<PlanItem>
+    public class Plan : ObservableCollection<PlanItem>, INotifyPropertyChanged
     {
-        public Plan()
-        {
-            Add(new PlanItem() {Description = "Morgenmad", Time = DateTime.Parse("08:00 AM")});
-            Add(new PlanItem() {Description = "Vitaminpiller", Time = DateTime.Parse("12:00 AM") });
-        }
     }
 }
