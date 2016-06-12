@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using I4GUI_eksamen_2015_sommer_2.Views;
-using JsonSerializer;
 
 namespace I4GUI_eksamen_2015_sommer_2
 {
@@ -27,7 +26,7 @@ namespace I4GUI_eksamen_2015_sommer_2
         private Plan _log;
         
         private LogWindow _logWindow;
-
+        
         public MainWindow()
         {
             InitializeComponent();

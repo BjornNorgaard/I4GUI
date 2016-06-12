@@ -26,7 +26,6 @@ namespace I4GUI_eksamen_2015_sommer_2.Views
         public LogWindow()
         {
             InitializeComponent();
-
             _log = (Plan)FindResource("Log");
 
         }

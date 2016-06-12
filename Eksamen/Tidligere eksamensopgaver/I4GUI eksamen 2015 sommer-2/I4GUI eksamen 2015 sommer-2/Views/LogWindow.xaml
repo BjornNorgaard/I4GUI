@@ -8,9 +8,9 @@
         Title="Log" Height="300" Width="300"
         Style="{StaticResource WindowStyle}"
         SizeToContent="WidthAndHeight">
-    <Window.Resources>
-        <local:Plan x:Key="Log" />
-    </Window.Resources>
+    <!--<Window.Resources>
+        <local:Plan x:Key="Log"/>
+    </Window.Resources>-->
     <Grid>
 
 

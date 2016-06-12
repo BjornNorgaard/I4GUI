@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using JsonSerializer;
 
 namespace I4GUI_eksamen_2015_sommer_2.Views
 {

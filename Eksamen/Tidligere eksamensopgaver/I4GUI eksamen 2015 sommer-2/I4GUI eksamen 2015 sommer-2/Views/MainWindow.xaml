@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:I4GUI_eksamen_2015_sommer_2.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="307.708"
+        Title="Drug Helper 2000" Height="350" Width="307.708"
         Style="{StaticResource WindowStyle}"
         SizeToContent="Height"
         Loaded="MainWindow_OnLoaded">
-    <Window.Resources>
+    <!--<Window.Resources>
         <views:Plan x:Key="Plan"/>
         <views:Plan x:Key="Log" />
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
         
         
