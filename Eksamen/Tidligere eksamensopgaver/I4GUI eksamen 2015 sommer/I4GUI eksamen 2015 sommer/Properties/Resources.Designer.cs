@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUI_eksamen_sommer_2015.Properties
+namespace I4GUI_eksamen_2015_sommer.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace GUI_eksamen_sommer_2015.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GUI_eksamen_sommer_2015.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("I4GUI_eksamen_2015_sommer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

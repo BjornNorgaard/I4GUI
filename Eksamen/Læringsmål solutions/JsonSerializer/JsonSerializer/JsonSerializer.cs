@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace JsonSerializer
 {
-    public class JsonSerializer<T> : IJsonSerializer<T>
+    public class JsonSerializer<T>
     {
         #region Properties and Members
 
@@ -34,19 +34,27 @@ namespace JsonSerializer
         {
             Filename = nameOfJsonFileToCreate;
 
-            StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename);
+            //// creating empty file to prevent crash when trying to read before creating file
+            if (File.Exists(Directory.GetCurrentDirectory() + Filename) == false)
+            {
+                using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename))
+                {
+                    sw.Write("");
+                    sw.Close();
+                }
+            }
         }
 
-        #region Serialize + Overloads
+        #region Serialization methods
 
         /// <summary>
         /// Method for serializing objects with json. 
-        /// Will overwrite current context of .json file. Use 'AddToSerializedCollection' to add single item.
+        /// Will overwrite current context of .json file. Use 'SerializeObject' to add single item.
         /// </summary>
-        /// <param name="ListOfProductsToSerialize">List of objects to be serialized.</param>
-        public void SerializeCollection(List<T> ListOfProductsToSerialize)
+        /// <param name="listOfProductsToSerialize">List of objects to be serialized.</param>
+        public void OverwriteSerializeCollectionWithOtherCollection(List<T> listOfProductsToSerialize)
         {
-            string serializedObjects = JsonConvert.SerializeObject(ListOfProductsToSerialize);
+            string serializedObjects = JsonConvert.SerializeObject(listOfProductsToSerialize);
 
             using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename))
             {
@@ -56,15 +64,49 @@ namespace JsonSerializer
         }
 
         /// <summary>
+        /// Overwrites file with single serialized object.
+        /// </summary>
+        /// <param name="productToSerialize">Object to overwrite file with.</param>
+        public void OverwriteSerializedCollectionWithObject(T productToSerialize)
+        {
+            List<T> listOfSingleObjectToBeSerialized = new List<T>();
+            listOfSingleObjectToBeSerialized.Add(productToSerialize);
+
+            string serializedObjects = JsonConvert.SerializeObject(listOfSingleObjectToBeSerialized);
+
+            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + Filename))
+            {
+                sw.Write(serializedObjects);
+                sw.Close();
+            }
+        }
+
+        /// <summary>
+        /// Adds collection to the already serialized file.
+        /// </summary>
+        /// <param name="collectionOfObjects">List of objects to be serialized in file.</param>
+        public void SerializeCollection(List<T> collectionOfObjects)
+        {
+            List<T> listOfPreviouslySerializedObjects = Deserialize();
+
+            foreach (T item in collectionOfObjects)
+            {
+                listOfPreviouslySerializedObjects.Add(item);
+            }
+
+            OverwriteSerializeCollectionWithOtherCollection(listOfPreviouslySerializedObjects);
+        }
+
+        /// <summary>
         /// Overload for Serialized method. This one only takes one object and adds it to .json file.
         /// </summary>
         /// <param name="productToSerialize">Single object to be serialized and added til file.</param>
-        public void AddToSerializedCollection(T productToSerialize)
+        public void SerializeObject(T productToSerialize)
         {
             List<T> listOfPreviouslySerializedObjects = Deserialize();
             listOfPreviouslySerializedObjects.Add(productToSerialize);
 
-            SerializeCollection(listOfPreviouslySerializedObjects);
+            OverwriteSerializeCollectionWithOtherCollection(listOfPreviouslySerializedObjects);
         }
 
         #endregion
@@ -77,20 +119,24 @@ namespace JsonSerializer
         /// <returns>List containing all serialized objects.</returns>
         public List<T> Deserialize()
         {
-            List<T> listOfDeserializedObjectToBeReturned = null;
-            string alreadySerializedContentOfJsonFile = null;
-
+            string alreadySerializedContentOfJsonFile;
+            
             try
             {
                 alreadySerializedContentOfJsonFile = File.ReadAllText(Directory.GetCurrentDirectory() + Filename);
             }
             catch (Exception e)
             {
-                MessageBox.Show("While reading the file, i found an exception. It most likely means that the file " + Filename + " wasen't found\n\n " + e);
+                MessageBox.Show("While trying to read the file, i found an exception:\n\n " + e);
                 throw;
             }
 
-            listOfDeserializedObjectToBeReturned = JsonConvert.DeserializeObject<List<T>>(alreadySerializedContentOfJsonFile);
+            if (alreadySerializedContentOfJsonFile == "")
+            {
+                return new List<T>();
+            }
+
+            List<T> listOfDeserializedObjectToBeReturned = JsonConvert.DeserializeObject<List<T>>(alreadySerializedContentOfJsonFile);
 
             return listOfDeserializedObjectToBeReturned;
         }

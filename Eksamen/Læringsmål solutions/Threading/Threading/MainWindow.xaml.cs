@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,33 +13,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Schema;
 
-namespace GUI_eksamen_sommer_2015
+namespace Threading
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Tuple<DateTime, string>> _medList = new List<Tuple<DateTime, string>>();
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void CreateButton_Click(object sender, RoutedEventArgs e)
-        {
-            CreateWindow dlg = new CreateWindow();
-            dlg.Owner = this;
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        private string taskText = "";
 
-            if (dlg.ShowDialog() == true)
-            {
-                
-            }
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            tbStatus.Text = "Task started!";
+            await Task.Run(() => TakesForever());
+            tbStatus.Text = "Task completed!";
+        }
+
+        private void TakesForever()
+        {
+            Thread.Sleep(2000);
         }
     }
-
-
 }
