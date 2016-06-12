@@ -27,7 +27,7 @@ namespace I4GUI_eksamen_2015_sommer_2
         public MainWindow()
         {
             InitializeComponent();
-            Plan plan = (Plan)FindResource("Plan");
+            _plan = (Plan)FindResource("Plan");
         }
 
         private void MenuItem_Opret_OnClick(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace I4GUI_eksamen_2015_sommer_2
 
             if (dlg.ShowDialog() == true)
             {
-                _plan.AddItem(dlg._planItem);
+                _plan.Add(dlg.newPlanItem);
             }
         }
 
@@ -50,6 +50,11 @@ namespace I4GUI_eksamen_2015_sommer_2
         private void MenuItem_Luk_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ButtonBase_ViewLog_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

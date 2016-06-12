@@ -20,20 +20,21 @@ namespace I4GUI_eksamen_2015_sommer_2.Views
     /// </summary>
     public partial class CreatePlanWindow : Window
     {
-        public PlanItem _planItem = new PlanItem();
+        public PlanItem newPlanItem { get; set; }
 
         public CreatePlanWindow()
         {
             InitializeComponent();
+
+            newPlanItem = new PlanItem();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                _planItem.Time = DateTime.ParseExact(tbxTime.Text, "HHmm", CultureInfo.InvariantCulture);
-                _planItem.Description = tbxDesc.Text;
-
+                newPlanItem.Time = DateTime.ParseExact(tbxTime.Text, "HHmm", CultureInfo.InvariantCulture);
+                newPlanItem.Description = tbxDesc.Text;
                 DialogResult = true;
             }
             catch (Exception exception)
