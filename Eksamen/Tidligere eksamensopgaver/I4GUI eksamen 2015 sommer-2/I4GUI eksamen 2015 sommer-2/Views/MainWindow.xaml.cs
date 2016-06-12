@@ -23,11 +23,13 @@ namespace I4GUI_eksamen_2015_sommer_2
     public partial class MainWindow : Window
     {
         private Plan _plan;
+        private Plan _log;
 
         public MainWindow()
         {
             InitializeComponent();
             _plan = (Plan)FindResource("Plan");
+            _log = (Plan) FindResource("Log");
         }
 
         private void MenuItem_Opret_OnClick(object sender, RoutedEventArgs e)

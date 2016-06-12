@@ -10,6 +10,7 @@
         SizeToContent="Height">
     <Window.Resources>
         <views:Plan x:Key="Plan"/>
+        <views:Plan x:Key="Log" />
     </Window.Resources>
     <Grid>
         
@@ -52,3 +53,4 @@
         
     </Grid>
 </Window>
+

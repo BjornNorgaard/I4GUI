@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:I4GUI_eksamen_2015_sommer_2.Views"
         mc:Ignorable="d"
-        Title="" Height="200" Width="300"
+        Title="" Height="229.167" Width="200"
         Style="{StaticResource WindowStyle}"
         SizeToContent="Height">
     <Grid>
@@ -14,7 +14,7 @@
             <TextBlock Text="Tidspunkt"></TextBlock>
             <TextBox x:Name="tbxTime"></TextBox>
             <TextBlock Text="Beskrivelse"></TextBlock>
-            <TextBox x:Name="tbxDesc" Height="50"></TextBox>
+            <TextBox x:Name="tbxDesc" Height="40"></TextBox>
 
             <Grid>
                 <Grid.ColumnDefinitions>
