@@ -54,7 +54,7 @@
 
             <!--Listbox with various jokes-->
             <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
-                      DisplayMemberPath="Name" Name="ListBox_Jokes"/>
+                      DisplayMemberPath="Name" Name="ListBox_Jokes" MaxHeight="200"/>
             <!--<ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
                      Selected="{Binding Path=CurrentIndex}" DisplayMemberPath="Name"
                      Name="ListBox_Jokes"/>-->
