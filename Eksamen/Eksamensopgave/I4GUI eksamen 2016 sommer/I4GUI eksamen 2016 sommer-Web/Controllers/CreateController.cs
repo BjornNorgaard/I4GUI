@@ -13,5 +13,10 @@ namespace I4GUI_eksamen_2016_sommer_Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return Redirect("/Browse/Index");
+        }
     }
 }
