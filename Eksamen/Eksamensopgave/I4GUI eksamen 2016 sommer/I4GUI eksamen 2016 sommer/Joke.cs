@@ -12,10 +12,34 @@ namespace I4GUI_eksamen_2016_sommer
     {
         #region Properties
 
-        public string Name { get; set; }
-        public string Date { get; set; }
-        public string Source { get; set; }
-        public List<string> TagListList { get; set; }
+        private string _name;
+        private string _date;
+        private string _source;
+        private List<string> _tagListList;
+        
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public string Date
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
+
+        public string Source
+        {
+            get { return _source; }
+            set { _source = value; }
+        }
+
+        public List<string> TagListList
+        {
+            get { return _tagListList; }
+            set { _tagListList = value; }
+        }
 
         #endregion
 
@@ -36,7 +60,6 @@ namespace I4GUI_eksamen_2016_sommer
                     return true;
                 }
             }
-
             return false;
         }
     }
