@@ -46,7 +46,6 @@
 
                 <TextBox x:Name="TextBox_Search_Tags"></TextBox>
                 <Button Content="Søg" Grid.Column="1" Margin="5,0,5,5" Click="ButtonBase_SearchTags_OnClick"></Button>
-
             </Grid>
 
 
@@ -79,12 +78,7 @@
 
         </StackPanel>
         <!--Stackpanel starts here-->
-
-
-        <!--Image for right side of mainwindow-->
-        <!--<Image Source="bridimg.jpg" Grid.Column="1" Grid.RowSpan="2" Grid.Row="0" MaxWidth="300"/>-->
-        <!--Image for right side of mainwindow-->
-
+        
     </Grid>
 </Window>
 
