@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -85,6 +86,35 @@ namespace I4GUI_eksamen_2016_sommer
     {
         string filename = "";
 
+        #region INotifyPropertyChanged Eventimplementation
+
+        public new event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
+        #region IndexNumber property
+
+        public int IndexNumber
+        {
+            get { return _indexNumber; }
+            set
+            {
+                if (_indexNumber != value)
+                {
+                    _indexNumber = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
         public Jokes()
         {
             if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
@@ -95,6 +125,8 @@ namespace I4GUI_eksamen_2016_sommer
         }
 
         ICommand _addCommand;
+        private int _indexNumber;
+
         public ICommand AddCommand
         {
             get { return _addCommand ?? (_addCommand = new RelayCommand(AddJoke)); }
@@ -103,6 +135,8 @@ namespace I4GUI_eksamen_2016_sommer
         private void AddJoke()
         {
             Add(new Joke());
+            NotifyPropertyChanged("Count");
+
         }
     }
 }
