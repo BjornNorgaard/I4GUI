@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using MvvmFoundation.Wpf;
 
 namespace I4GUI_eksamen_2016_sommer
 {
@@ -45,6 +47,13 @@ namespace I4GUI_eksamen_2016_sommer
 
         #endregion
 
+        #region Constructors
+
+        public Joke()
+        {
+
+        }
+
         public Joke(string jName, string jDate, string jSource, string tags)
         {
             Name = jName;
@@ -52,6 +61,10 @@ namespace I4GUI_eksamen_2016_sommer
             Source = jSource;
             Tags = tags.Split(',');
         }
+
+        #endregion
+
+        #region Methods
 
         public bool ContainsTopic(string topic)
         {
@@ -64,6 +77,8 @@ namespace I4GUI_eksamen_2016_sommer
             }
             return false;
         }
+
+        #endregion
     }
 
     public class Jokes : ObservableCollection<Joke>, INotifyPropertyChanged
@@ -74,9 +89,20 @@ namespace I4GUI_eksamen_2016_sommer
         {
             if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             {
-                Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", 
-                    "13.6.2016", "PHP-bog", "kylling, gåde"));
+                Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016", "PHP-bog", "kylling, gåde"));
+                Add(new Joke("Hvorfor gik kalkunen over vejen? Fordi det var kyllingens fridag.", "14.6.2016", "Arthur", "kalkun, gåde"));
             }
+        }
+
+        ICommand _addCommand;
+        public ICommand AddCommand
+        {
+            get { return _addCommand ?? (_addCommand = new RelayCommand(AddJoke)); }
+        }
+
+        private void AddJoke()
+        {
+            Add(new Joke());
         }
     }
 }
