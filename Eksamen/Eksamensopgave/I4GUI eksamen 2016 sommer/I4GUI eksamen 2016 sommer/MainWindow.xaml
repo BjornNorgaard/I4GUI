@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="284.883"
+        SizeToContent="Height">
+    <Window.DataContext>
+        <local:Jokes></local:Jokes>
+    </Window.DataContext>
     <Grid>
-        
+        <!--Stackpanel starts here-->
+        <StackPanel>
+            <Button Content="Opret vittighed"></Button>
+            <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..."></TextBlock>
+            <TextBox x:Name="TextBox_Tags"></TextBox>
+            
+            <!--Listbox with various jokes-->
+            <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
+                      DisplayMemberPath="Name" Name="ListBox_Jokes"/>            
+            <!--<ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
+                     Selected="{Binding Path=CurrentIndex}" DisplayMemberPath="Name"
+                     Name="ListBox_Jokes"/>-->
+            <!--Listbox with various jokes-->
+            
+        </StackPanel>
+        <!--Stackpanel starts here-->
+
+
+        <!--Image for right side of mainwindow-->
+        <!--<Image Source="bridimg.jpg" Grid.Column="1" Grid.RowSpan="2" Grid.Row="0" MaxWidth="300"/>-->
+        <!--Image for right side of mainwindow-->
+
     </Grid>
 </Window>
+
