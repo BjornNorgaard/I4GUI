@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace I4GUI_eksamen_2016_sommer
 {
@@ -15,7 +17,7 @@ namespace I4GUI_eksamen_2016_sommer
         private string _name;
         private string _date;
         private string _source;
-        private List<string> _tagListList;
+        private string[] _tags;
         
         public string Name
         {
@@ -35,25 +37,25 @@ namespace I4GUI_eksamen_2016_sommer
             set { _source = value; }
         }
 
-        public List<string> TagListList
+        public string[] Tags
         {
-            get { return _tagListList; }
-            set { _tagListList = value; }
+            get { return _tags; }
+            set { _tags = value; }
         }
 
         #endregion
 
-        public Joke(string jName, string jDate, string jSource, List<string> jTagList)
+        public Joke(string jName, string jDate, string jSource, string tags)
         {
             Name = jName;
             Date = jDate;
             Source = jSource;
-            TagListList = jTagList;
+            Tags = tags.Split(',');
         }
 
         public bool ContainsTopic(string topic)
         {
-            foreach (string item in TagListList)
+            foreach (string item in Tags)
             {
                 if (item.Contains(topic))
                 {
@@ -61,6 +63,20 @@ namespace I4GUI_eksamen_2016_sommer
                 }
             }
             return false;
+        }
+    }
+
+    public class Jokes : ObservableCollection<Joke>, INotifyPropertyChanged
+    {
+        string filename = "";
+
+        public Jokes()
+        {
+            if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+            {
+                Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", 
+                    "13.6.2016", "PHP-bog", "kylling, gåde"));
+            }
         }
     }
 }
