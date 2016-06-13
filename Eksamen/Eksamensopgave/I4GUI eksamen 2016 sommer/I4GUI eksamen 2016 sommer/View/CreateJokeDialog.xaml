@@ -16,7 +16,7 @@
             <TextBox x:Name="TextBoxDato"></TextBox>
 
             <TextBlock Text="Tekst:"></TextBlock>
-            <TextBox x:Name="TextBoxTekst" MinHeight="50"></TextBox>
+            <TextBox x:Name="TextBoxTekst" MinHeight="50" TextWrapping="Wrap"></TextBox>
             
             <TextBlock Text="Kilde:"></TextBlock>
             <TextBox x:Name="TextBoxSource"></TextBox>
