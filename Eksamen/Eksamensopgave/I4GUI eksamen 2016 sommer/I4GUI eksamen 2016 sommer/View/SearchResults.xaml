@@ -8,9 +8,6 @@
         Title="SearchResults"  Width="300"
         Style="{StaticResource MyStyle}"
         SizeToContent="Height" MaxHeight="600">
-    <Window.DataContext>
-        <local:Jokes x:Name="JokesList"></local:Jokes>
-    </Window.DataContext>
     <Grid>
         <StackPanel>
             <TextBlock Text="Fundne vittigheder:"></TextBlock>

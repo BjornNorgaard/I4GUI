@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,21 +37,28 @@ namespace I4GUI_eksamen_2016_sommer
             Properties.Settings.Default.Save();
         }
 
-        private void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
+        private async void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
         {
             string tagToSearchFor = TextBox_Search_Tags.Text;
             Properties.Settings.Default.resentSearch = tagToSearchFor;
 
-            Jokes foundJokes = new Jokes();
-
-            foreach (Joke joke in JokesList)
+            Jokes foundJokes = await Task.Run(() =>
             {
-                if (joke.ContainsTopic(tagToSearchFor))
+                Jokes derpJokes = new Jokes();
+
+                foreach (Joke joke in JokesList)
                 {
-                    foundJokes.Add(joke);
+                    if (joke.ContainsTopic(tagToSearchFor))
+                    {
+                        derpJokes.Add(joke);
+                    }
+
+                    Thread.Sleep(2000);
                 }
-            }
-            
+
+                return derpJokes;
+            });
+
             if (_searchResultsWindow != null) _searchResultsWindow.Focus();
             else
             {
