@@ -39,7 +39,7 @@ namespace I4GUI_eksamen_2016_sommer
             get { return _tags; }
             set { _tags = value; }
         }
-
+        
         #endregion
 
         #region Constructors

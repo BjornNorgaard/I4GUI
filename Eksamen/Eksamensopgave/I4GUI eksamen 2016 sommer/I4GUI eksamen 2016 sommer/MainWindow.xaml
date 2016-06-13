@@ -11,11 +11,30 @@
         <local:Jokes></local:Jokes>
     </Window.DataContext>
     <Grid>
+        
         <!--Stackpanel starts here-->
         <StackPanel>
+            
+            
+            <!--Topmenu in mainwindow-->
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Gem" Command="{Binding SaveCommand}"></MenuItem>
+                    <MenuItem Header="_Luk"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Jokes">
+                    <MenuItem Header="_Opret ny vittighed" Command="{Binding AddCommand}"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <!--Topmenu in mainwindow-->
+            
+            
+            <!--Buttons and searchfield-->
             <Button Content="Opret vittighed"></Button>
             <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..."></TextBlock>
             <TextBox x:Name="TextBox_Tags"></TextBox>
+            <!--Buttons and searchfield-->
+            
             
             <!--Listbox with various jokes-->
             <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
@@ -24,6 +43,22 @@
                      Selected="{Binding Path=CurrentIndex}" DisplayMemberPath="Name"
                      Name="ListBox_Jokes"/>-->
             <!--Listbox with various jokes-->
+            
+            
+            <!--Textblocks for showing selected joke-->
+            <TextBlock Text="Dato:"></TextBlock>
+            <TextBox Text="{Binding Path=Date}"></TextBox>
+            
+            <TextBlock Text="Vittighed:"></TextBlock>
+            <TextBox Text="{Binding Path=Name}" TextWrapping="Wrap"></TextBox>
+            
+            <TextBlock Text="Kilde:"></TextBlock>
+            <TextBox Text="{Binding Path=Source}"></TextBox>
+            
+            <TextBlock Text="Emneord:"></TextBlock>
+            <TextBox Text="{Binding Path=Tags}"></TextBox>
+            <!--Textblocks for showing selected joke-->
+            
             
         </StackPanel>
         <!--Stackpanel starts here-->
