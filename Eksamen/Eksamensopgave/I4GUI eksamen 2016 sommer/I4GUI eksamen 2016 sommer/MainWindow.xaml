@@ -13,11 +13,11 @@
         <local:Jokes></local:Jokes>
     </Window.DataContext>
     <Grid>
-        
+
         <!--Stackpanel starts here-->
         <StackPanel>
-            
-            
+
+
             <!--Topmenu in mainwindow-->
             <Menu>
                 <MenuItem Header="_File">
@@ -30,39 +30,52 @@
                 </MenuItem>
             </Menu>
             <!--Topmenu in mainwindow-->
-            
-            
+
+
             <!--Buttons and searchfield-->
             <Button Content="Opret vittighed" Command="{Binding AddCommand}" ></Button>
-            <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..." LostFocus="UIElement_OnLostFocus"></TextBlock>
-            <TextBox x:Name="TextBox_Tags"></TextBox>
+            <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..." ></TextBlock>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="206*"/>
+                    <ColumnDefinition Width="71*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="TextBox_Tags"></TextBox>
+                <Button Content="Søg" Grid.Column="1" Margin="5,0,5,5" Click="ButtonBase_SearchTags_OnClick"></Button>
+
+            </Grid>
+
+
             <!--Buttons and searchfield-->
-            
-            
+
+
             <!--Listbox with various jokes-->
             <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
-                      DisplayMemberPath="Name" Name="ListBox_Jokes"/>            
+                      DisplayMemberPath="Name" Name="ListBox_Jokes"/>
             <!--<ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
                      Selected="{Binding Path=CurrentIndex}" DisplayMemberPath="Name"
                      Name="ListBox_Jokes"/>-->
             <!--Listbox with various jokes-->
-            
-            
+
+
             <!--Textblocks for showing selected joke-->
             <TextBlock Text="Dato:"></TextBlock>
             <TextBox Text="{Binding Path=Date}"></TextBox>
-            
+
             <TextBlock Text="Vittighed:"></TextBlock>
             <TextBox Text="{Binding Path=Name}" TextWrapping="Wrap"></TextBox>
-            
+
             <TextBlock Text="Kilde:"></TextBlock>
             <TextBox Text="{Binding Path=Source}"></TextBox>
-            
+
             <TextBlock Text="Emneord:"></TextBlock>
             <TextBox Text="{Binding Path=TagsSingleString}"></TextBox>
             <!--Textblocks for showing selected joke-->
-            
-            
+
+
         </StackPanel>
         <!--Stackpanel starts here-->
 
