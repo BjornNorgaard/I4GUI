@@ -8,7 +8,7 @@
         Title="Opret vittighed" Height="300" Width="300"
         Style="{StaticResource MyStyle}"
         SizeToContent="Height"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid>
         <StackPanel>
 
