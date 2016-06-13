@@ -13,7 +13,7 @@ namespace I4GUI_eksamen_2016_sommer
     public class Jokes : ObservableCollection<Joke>, INotifyPropertyChanged
     {
         string filename = Directory.GetCurrentDirectory() + "\\jokes.json";
-        
+
         #region INotifyPropertyChanged Eventimplementation
 
         public new event PropertyChangedEventHandler PropertyChanged;
@@ -49,12 +49,10 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Jokes()
         {
-            if ((bool) (DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+            if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             {
-                Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016",
-                    "PHP-bog", "kylling, gåde"));
-                Add(new Joke("Hvorfor gik kalkunen over vejen? Fordi det var kyllingens fridag.", "14.6.2016", "Arthur",
-                    "kalkun, gåde"));
+                Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016", "PHP-bog", "kylling, gåde"));
+                Add(new Joke("Hvorfor gik kalkunen over vejen? Fordi det var kyllingens fridag.", "14.6.2016", "Arthur", "kalkun, gåde"));
             }
         }
 
