@@ -23,7 +23,6 @@ namespace I4GUI_eksamen_2016_sommer
         {
             InitializeComponent();
             JokesList = jokes;
-            JokesList.Add(new Joke());
         }
 
         private void ButtonBase_Luk_OnClick(object sender, RoutedEventArgs e)

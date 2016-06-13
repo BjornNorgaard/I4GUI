@@ -53,7 +53,7 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Joke()
         {
-
+            // I AM EMPTY BCUZ NEWTON JSON DESERIALIZATION :-)
         }
 
         public Joke(string jName, string jDate, string jSource, string tags)
