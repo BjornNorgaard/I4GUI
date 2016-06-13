@@ -20,7 +20,8 @@ namespace I4GUI_eksamen_2016_sommer
     /// </summary>
     public partial class MainWindow : Window
     {
-        Jokes foundJokes = new Jokes();
+        //Jokes foundJokes = new Jokes();
+        private FunnyImg _modelessWindow = null;
 
         public MainWindow()
         {
@@ -42,6 +43,27 @@ namespace I4GUI_eksamen_2016_sommer
             //}
 
             //ListBox_Jokes.ItemsSource = foundJokes;
+        }
+
+        private void MenuItem_FunnyImg_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (_modelessWindow != null) _modelessWindow.Focus();
+            else
+            {
+                _modelessWindow = new FunnyImg();
+                _modelessWindow.Owner = this;
+                _modelessWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+                _modelessWindow.CloseEvent += Modeless_Closed;
+
+                _modelessWindow.Show();
+            }
+        }
+
+        private void Modeless_Closed(object sender, EventArgs e)
+        {
+            _modelessWindow = null;
+            Focus();
         }
     }
 }

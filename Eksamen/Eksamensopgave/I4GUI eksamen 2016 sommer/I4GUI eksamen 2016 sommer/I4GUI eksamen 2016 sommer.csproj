@@ -55,11 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\FunnyImg.xaml.cs">
+      <DependentUpon>FunnyImg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateJokeDialog.xaml.cs">
       <DependentUpon>CreateJokeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Jokes.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Page Include="View\FunnyImg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateJokeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,7 +118,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\bridimg.jpg" />
+    <Content Include="Image\bridimg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

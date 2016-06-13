@@ -26,7 +26,7 @@
                 </MenuItem>
                 <MenuItem Header="_Jokes">
                     <MenuItem Header="_Opret ny vittighed" Command="{Binding AddCommand}"></MenuItem>
-                    <MenuItem Header="_Funny image"></MenuItem>
+                    <MenuItem Header="_Funny image" Click="MenuItem_FunnyImg_OnClick"></MenuItem>
                 </MenuItem>
             </Menu>
             <!--Topmenu in mainwindow-->
