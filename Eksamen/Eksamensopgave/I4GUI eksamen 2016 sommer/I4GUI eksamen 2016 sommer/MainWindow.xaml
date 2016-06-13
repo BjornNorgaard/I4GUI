@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Vittighed 2000" Height="496" Width="284.883"
         SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
         Style="{StaticResource MyStyle}">
     <Window.DataContext>
         <local:Jokes></local:Jokes>
@@ -32,7 +33,7 @@
             
             
             <!--Buttons and searchfield-->
-            <Button Content="Opret vittighed"></Button>
+            <Button Content="Opret vittighed" Command="{Binding AddCommand}" ></Button>
             <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..."></TextBlock>
             <TextBox x:Name="TextBox_Tags"></TextBox>
             <!--Buttons and searchfield-->

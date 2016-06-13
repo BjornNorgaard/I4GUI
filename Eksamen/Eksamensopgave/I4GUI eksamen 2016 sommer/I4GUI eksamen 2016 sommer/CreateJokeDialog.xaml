@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Opret vittighed" Height="300" Width="300"
         Style="{StaticResource MyStyle}"
-        SizeToContent="Height">
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainWindow></local:MainWindow>
+    </Window.DataContext>
     <Grid>
         <StackPanel>
 
