@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\SearchResults.xaml.cs">
+      <DependentUpon>SearchResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FunnyImg.xaml.cs">
       <DependentUpon>FunnyImg.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     </Compile>
     <Compile Include="Model\Jokes.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Page Include="View\SearchResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FunnyImg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -22,5 +22,17 @@ namespace I4GUI_eksamen_2016_sommer.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string resentSearch {
+            get {
+                return ((string)(this["resentSearch"]));
+            }
+            set {
+                this["resentSearch"] = value;
+            }
+        }
     }
 }

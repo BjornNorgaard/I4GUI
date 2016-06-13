@@ -22,7 +22,8 @@ namespace I4GUI_eksamen_2016_sommer
     public partial class MainWindow : Window
     {
         //JokesList foundJokes = new JokesList();
-        private FunnyImg _modelessWindow = null;
+        private FunnyImg _funnyImageWindow = null;
+        private SearchResults _searchResultsWindow = null;
 
         public MainWindow()
         {
@@ -32,33 +33,60 @@ namespace I4GUI_eksamen_2016_sommer
 
         private void Before_Closing(object sender, CancelEventArgs e)
         {
-            
+            Properties.Settings.Default.Save();
         }
 
         private void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
         {
             string tagToSearchFor = TextBox_Search_Tags.ToString();
+            Properties.Settings.Default.resentSearch = tagToSearchFor;
+
+            Jokes foundJokes = new Jokes();
+
+            foreach (Joke joke in JokesList)
+            {
+                if (joke.ContainsTopic(tagToSearchFor))
+                {
+                    foundJokes.Add(joke);
+                }
+            }
             
+            if (_searchResultsWindow != null) _searchResultsWindow.Focus();
+            else
+            {
+                _searchResultsWindow = new SearchResults(foundJokes);
+                _searchResultsWindow.Owner = this;
+                _searchResultsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+                _searchResultsWindow.CloseEvent += SearchResultsClosed;
+
+                _searchResultsWindow.Show();
+            }
         }
 
         private void MenuItem_FunnyImg_OnClick(object sender, RoutedEventArgs e)
         {
-            if (_modelessWindow != null) _modelessWindow.Focus();
+            if (_funnyImageWindow != null) _funnyImageWindow.Focus();
             else
             {
-                _modelessWindow = new FunnyImg();
-                _modelessWindow.Owner = this;
-                _modelessWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                _funnyImageWindow = new FunnyImg();
+                _funnyImageWindow.Owner = this;
+                _funnyImageWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-                _modelessWindow.CloseEvent += Modeless_Closed;
+                _funnyImageWindow.CloseEvent += FunnyImageClosed;
 
-                _modelessWindow.Show();
+                _funnyImageWindow.Show();
             }
         }
-
-        private void Modeless_Closed(object sender, EventArgs e)
+        private void SearchResultsClosed(object sender, EventArgs e)
         {
-            _modelessWindow = null;
+            _searchResultsWindow = null;
+            Focus();
+        }
+
+        private void FunnyImageClosed(object sender, EventArgs e)
+        {
+            _funnyImageWindow = null;
             Focus();
         }
 
