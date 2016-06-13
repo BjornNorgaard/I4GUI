@@ -22,5 +22,5 @@
     <Style TargetType="Window" x:Key="MyStyle">
         <Setter Property="Background" Value="BlanchedAlmond"></Setter>
     </Style>
-   
+    
 </ResourceDictionary>

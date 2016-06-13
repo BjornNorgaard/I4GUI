@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
         mc:Ignorable="d"
         Title="FunnyImg" Height="350.581" Width="300"
-        SizeToContent="WidthAndHeight"
+        SizeToContent="Height" MinHeight="100"
         Style="{StaticResource MyStyle}">
     <Grid Margin="5">
         <StackPanel>
-            <Image Source="../Image/bridimg.jpg"></Image>
+            <!--<Image x:Name="image" Source="../Image/bridimg.jpg" Height="50"/>-->
             <Button Content="Luk" Margin="0,5,0,0" Click="ButtonBase_Close_OnClick"></Button>
         </StackPanel>
     </Grid>
