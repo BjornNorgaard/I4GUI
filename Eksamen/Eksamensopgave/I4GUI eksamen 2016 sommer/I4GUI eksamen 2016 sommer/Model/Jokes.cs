@@ -49,10 +49,13 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Jokes()
         {
+            // use this for demo
             if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             {
                 Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016", "PHP-bog", "kylling, gåde"));
                 Add(new Joke("Hvorfor gik kalkunen over vejen? Fordi det var kyllingens fridag.", "14.6.2016", "Arthur", "kalkun, gåde"));
+                Add(new Joke("Hvorfor gik fasanen over vejen? For at bevise at den ikke var en kylling", "14.7.2014", "Sofie", "fasan, gåde"));
+                Add(new Joke("Hvorfor gik kyllingen over Möbius bånd? For at komme over på den samme side.", "15.7.2014", "Widipedia", "kylling, gåde, matematik"));
             }
         }
 
