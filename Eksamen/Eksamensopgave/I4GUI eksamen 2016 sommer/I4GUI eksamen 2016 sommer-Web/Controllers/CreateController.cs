@@ -14,8 +14,16 @@ namespace I4GUI_eksamen_2016_sommer_Web.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        public ActionResult Create(FormCollection collection)
         {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return Redirect("/Browse/Index");
         }
     }

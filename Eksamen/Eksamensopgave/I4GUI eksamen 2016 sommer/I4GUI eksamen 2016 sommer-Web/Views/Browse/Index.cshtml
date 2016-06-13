@@ -1,8 +1,47 @@
-﻿
+﻿@using I4GUI_eksamen_2016_sommer
+@using Newtonsoft.Json
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Browse";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Browse saved jokes</h2>
 
+<table class="table" id="jokeTable">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Joke</th>
+            <th>Source</th>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+    @{
+        string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+        List<Joke> jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
+
+        foreach (Joke joke in jokesInJsonFile)
+        {
+            <tr>
+                <td>
+                    @joke.Date
+                </td>
+                <td>
+                    @joke.Name
+                </td>
+                <td>
+                    @joke.Source
+                </td>
+                <td>
+                    @foreach (var tag in joke.Tags)
+                    {
+                        <span class="label label-primary">@tag</span>
+                    }
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -50,7 +51,7 @@ namespace I4GUI_eksamen_2016_sommer
         public Jokes()
         {
             // use this for demo
-            if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+            //if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             //for (int i = 0; i < 100000; i++)
             {
                 Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016", "PHP-bog", "kylling, gåde"));
@@ -102,7 +103,7 @@ namespace I4GUI_eksamen_2016_sommer
         {
             string jsonOutput = JsonConvert.SerializeObject(this);
 
-            using (StreamWriter sw = new StreamWriter(filename))
+            using (StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
             {
                 sw.Write(jsonOutput);
                 sw.Close();
@@ -119,7 +120,7 @@ namespace I4GUI_eksamen_2016_sommer
         {
             if (File.Exists(filename))
             {
-                string currentContent = File.ReadAllText(filename);
+                string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
                 Jokes someJokes = JsonConvert.DeserializeObject<Jokes>(currentContent);
 
                 Clear();
