@@ -22,10 +22,18 @@ namespace I4GUI_eksamen_2016_sommer
         public SearchResults(Jokes jokes)
         {
             InitializeComponent();
-            foreach (Joke joke in jokes)
+            TransferJokes(jokes);
+        }
+
+        private async void TransferJokes(Jokes jokes)
+        {
+            await Task.Run(() =>
             {
-                JokesList.Add(joke);
-            }
+                foreach (Joke joke in jokes)
+                {
+                    JokesList.Add(joke);
+                }
+            });            
         }
 
         private void ButtonBase_Luk_OnClick(object sender, RoutedEventArgs e)

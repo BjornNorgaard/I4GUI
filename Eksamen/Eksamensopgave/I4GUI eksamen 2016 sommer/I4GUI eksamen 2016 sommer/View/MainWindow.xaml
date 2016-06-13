@@ -35,7 +35,7 @@
 
             <!--Buttons and searchfield-->
             <Button Content="Opret vittighed" Command="{Binding AddCommand}" ></Button>
-            <TextBlock Text="Søg efter emne:" ToolTip="På form: kylling, gåde..." ></TextBlock>
+            <TextBlock x:Name="TextBlock_Search" Text="Søg efter emne:" ToolTip="På form: kylling, gåde..." ></TextBlock>
 
 
             <Grid>
