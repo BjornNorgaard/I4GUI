@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="284.883"
-        SizeToContent="Height">
+        Title="MainWindow" Height="496" Width="284.883"
+        SizeToContent="Height"
+        Style="{StaticResource MyStyle}">
     <Window.DataContext>
         <local:Jokes></local:Jokes>
     </Window.DataContext>

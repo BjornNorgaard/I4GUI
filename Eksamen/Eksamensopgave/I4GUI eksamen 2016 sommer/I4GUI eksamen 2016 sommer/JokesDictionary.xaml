@@ -2,6 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer">
     
-    <Style ></Style>
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="Background" Value="PaleVioletRed"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBlock">
+        <Setter Property="Margin" Value="5,5,5,0"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBox">
+        <Setter Property="Margin" Value="5,0,5,5"></Setter>
+    </Style>
+    
+    <Style TargetType="ListBox">
+        <Setter Property="Margin" Value="5"></Setter>
+    </Style>
+    
+    <Style TargetType="Window" x:Key="MyStyle">
+        <Setter Property="Background" Value="BlanchedAlmond"></Setter>
+    </Style>
     
 </ResourceDictionary>
