@@ -38,7 +38,7 @@ namespace I4GUI_eksamen_2016_sommer
 
         private void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
         {
-            string tagToSearchFor = TextBox_Search_Tags.ToString();
+            string tagToSearchFor = TextBox_Search_Tags.Text;
             Properties.Settings.Default.resentSearch = tagToSearchFor;
 
             Jokes foundJokes = new Jokes();

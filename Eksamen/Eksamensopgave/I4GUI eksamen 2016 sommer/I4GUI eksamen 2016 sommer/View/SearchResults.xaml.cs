@@ -22,7 +22,10 @@ namespace I4GUI_eksamen_2016_sommer
         public SearchResults(Jokes jokes)
         {
             InitializeComponent();
-            JokesList = jokes;
+            foreach (Joke joke in jokes)
+            {
+                JokesList.Add(joke);
+            }
         }
 
         private void ButtonBase_Luk_OnClick(object sender, RoutedEventArgs e)
