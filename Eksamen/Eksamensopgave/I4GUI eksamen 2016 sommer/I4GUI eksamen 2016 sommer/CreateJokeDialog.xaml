@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
         mc:Ignorable="d"
-        Title="CreateJokeDialog" Height="300" Width="300">
+        Title="Opret vittighed" Height="300" Width="300"
+        Style="{StaticResource MyStyle}"
+        SizeToContent="Height">
     <Grid>
-        
+        <StackPanel>
+
+            <TextBlock Text="Dato:"></TextBlock>
+            <TextBox x:Name="TextBoxDato"></TextBox>
+
+            <TextBlock Text="Tekst:"></TextBlock>
+            <TextBox x:Name="TextBoxTekst" MinHeight="50"></TextBox>
+            
+            <TextBlock Text="Kilde:"></TextBlock>
+            <TextBox x:Name="TextBoxSource"></TextBox>
+            
+            <TextBlock Text="Emneord:"></TextBlock>
+            <TextBox x:Name="TextBoxTags"></TextBox>
+
+        </StackPanel>
     </Grid>
 </Window>
