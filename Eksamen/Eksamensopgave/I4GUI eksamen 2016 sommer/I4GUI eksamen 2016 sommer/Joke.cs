@@ -15,6 +15,7 @@ namespace I4GUI_eksamen_2016_sommer
         private string _date;
         private string _source;
         private string[] _tags;
+        private string _tagsSingleString;
 
         public string Name
         {
@@ -37,12 +38,16 @@ namespace I4GUI_eksamen_2016_sommer
         public string[] Tags
         {
             get { return _tags; }
-            set { _tags = value; }
+            set
+            {
+                _tags = value;
+            }
         }
 
         public string TagsSingleString
         {
-            get { return String.Join(",", _tags); }
+            get { return _tagsSingleString; }
+            set { _tagsSingleString = value; }
         }
 
         #endregion
@@ -60,6 +65,7 @@ namespace I4GUI_eksamen_2016_sommer
             Date = jDate;
             Source = jSource;
             Tags = tags.Split(',');
+            TagsSingleString = tags;
         }
 
         #endregion

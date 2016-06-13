@@ -56,7 +56,7 @@
             <TextBox Text="{Binding Path=Source}"></TextBox>
             
             <TextBlock Text="Emneord:"></TextBlock>
-            <TextBox Text="{Binding Path=Tags}"></TextBox>
+            <TextBox Text="{Binding Path=TagsSingleString}"></TextBox>
             <!--Textblocks for showing selected joke-->
             
             
