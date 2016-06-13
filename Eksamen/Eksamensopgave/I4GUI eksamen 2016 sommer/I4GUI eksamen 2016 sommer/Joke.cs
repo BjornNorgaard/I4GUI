@@ -39,7 +39,12 @@ namespace I4GUI_eksamen_2016_sommer
             get { return _tags; }
             set { _tags = value; }
         }
-        
+
+        public string TagsSingleString
+        {
+            get { return String.Join(",", _tags); }
+        }
+
         #endregion
 
         #region Constructors
