@@ -19,6 +19,11 @@ namespace I4GUI_eksamen_2016_sommer
     /// </summary>
     public partial class CreateJokeDialog : Window
     {
+        public string Tekst { get; set; }
+        public string  Date { get; set; }
+        public string Source { get; set; }
+        public string Tags { get; set; }
+
         public CreateJokeDialog()
         {
             InitializeComponent();

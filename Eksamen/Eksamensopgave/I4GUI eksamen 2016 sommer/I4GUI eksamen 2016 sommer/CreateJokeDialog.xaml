@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel>
 
-            <TextBlock Text="Dato:"></TextBlock>
+            <TextBlock Text="Dato:" ToolTip="På format: dd.mm.yyyy"></TextBlock>
             <TextBox x:Name="TextBoxDato"></TextBox>
 
             <TextBlock Text="Tekst:"></TextBlock>
@@ -23,6 +23,17 @@
             <TextBlock Text="Emneord:"></TextBlock>
             <TextBox x:Name="TextBoxTags"></TextBox>
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Cancel" IsCancel="True"></Button>
+                <Button Content="OK" IsDefault="True" Grid.Column="1"></Button>
+                
+            </Grid>
+            
         </StackPanel>
     </Grid>
 </Window>
