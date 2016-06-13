@@ -20,6 +20,8 @@ namespace I4GUI_eksamen_2016_sommer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Jokes foundJokes = new Jokes();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,19 @@ namespace I4GUI_eksamen_2016_sommer
         
         private void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            //string tagsToSearchFor = TextBox_Search_Tags.ToString();
+
+            //Jokes foundJokes = new Jokes();
+
+            //foreach (Joke joke in (Jokes)ListBox_Jokes.ItemsSource)
+            //{
+            //    if (joke.ContainsTopic(tagsToSearchFor) == false)
+            //    {
+            //        foundJokes.Add(joke);
+            //    }
+            //}
+
+            //ListBox_Jokes.ItemsSource = foundJokes;
         }
     }
 }

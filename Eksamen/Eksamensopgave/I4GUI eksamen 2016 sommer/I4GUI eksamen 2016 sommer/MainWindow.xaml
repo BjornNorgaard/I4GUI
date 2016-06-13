@@ -43,7 +43,7 @@
                     <ColumnDefinition Width="71*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox x:Name="TextBox_Tags"></TextBox>
+                <TextBox x:Name="TextBox_Search_Tags"></TextBox>
                 <Button Content="Søg" Grid.Column="1" Margin="5,0,5,5" Click="ButtonBase_SearchTags_OnClick"></Button>
 
             </Grid>
