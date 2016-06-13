@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,14 @@ namespace I4GUI_eksamen_2016_sommer
         public MainWindow()
         {
             InitializeComponent();
+            Closing += Before_Closing;
         }
-        
+
+        private void Before_Closing(object sender, CancelEventArgs e)
+        {
+            
+        }
+
         private void ButtonBase_SearchTags_OnClick(object sender, RoutedEventArgs e)
         {
             //string tagsToSearchFor = TextBox_Search_Tags.ToString();
@@ -64,6 +71,11 @@ namespace I4GUI_eksamen_2016_sommer
         {
             _modelessWindow = null;
             Focus();
+        }
+
+        private void MenuItem_Luk_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -6,13 +6,14 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml.Serialization;
 using MvvmFoundation.Wpf;
+using Newtonsoft.Json;
 
 namespace I4GUI_eksamen_2016_sommer
 {
     public class Jokes : ObservableCollection<Joke>, INotifyPropertyChanged
     {
-        string filename = "";
-
+        string filename = Directory.GetCurrentDirectory() + "\\jokes.json";
+        
         #region INotifyPropertyChanged Eventimplementation
 
         public new event PropertyChangedEventHandler PropertyChanged;
@@ -48,7 +49,7 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Jokes()
         {
-            //if ((bool) (DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+            if ((bool) (DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             {
                 Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016",
                     "PHP-bog", "kylling, gåde"));
@@ -58,7 +59,7 @@ namespace I4GUI_eksamen_2016_sommer
         }
 
         #endregion
-        
+
         #region Adding jokes
 
         ICommand _addCommand;
@@ -82,7 +83,7 @@ namespace I4GUI_eksamen_2016_sommer
         }
 
         #endregion
-        
+
         #region Saving jokes
 
         ICommand _saveCommand;
@@ -91,24 +92,44 @@ namespace I4GUI_eksamen_2016_sommer
         {
             get
             {
-                return _saveCommand ??
-                       (_saveCommand = new RelayCommand(SaveFileCommand_Execute, SaveFileCommand_CanExecute));
+                return _saveCommand ?? (_saveCommand = new RelayCommand(SaveFileCommand_Execute));
             }
         }
 
         private void SaveFileCommand_Execute()
         {
-            // Create an instance of the XmlSerializer class and specify the type of object to serialize.
-            XmlSerializer serializer = new XmlSerializer(typeof(Jokes));
-            TextWriter writer = new StreamWriter(filename);
-            // Serialize all the agents.
-            serializer.Serialize(writer, this);
-            writer.Close();
+            string jsonOutput = JsonConvert.SerializeObject(this);
+
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.Write(jsonOutput);
+                sw.Close();
+            }
         }
 
-        private bool SaveFileCommand_CanExecute()
+        private ICommand _loadCommand;
+
+        public ICommand LoadCommand
         {
-            return (filename != "") && (Count > 0);
+            get { return _loadCommand ?? (_loadCommand = new RelayCommand(LoadFileCommand_Execute)); }
+        }
+        private void LoadFileCommand_Execute()
+        {
+            if (File.Exists(filename))
+            {
+                string currentContent = File.ReadAllText(filename);
+                Jokes someJokes = JsonConvert.DeserializeObject<Jokes>(currentContent);
+
+                foreach (Joke joke in this)
+                {
+                    Remove(joke);
+                }
+
+                foreach (Joke item in someJokes)
+                {
+                    Add(item);
+                }
+            }
         }
 
         #endregion

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
         mc:Ignorable="d"
         Title="Vittighed 2000" Height="496" Width="284.883"
-        SizeToContent="Height"
+        SizeToContent="Height" MaxHeight="600"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource MyStyle}">
     <Window.DataContext>
@@ -22,7 +22,8 @@
             <Menu>
                 <MenuItem Header="_File">
                     <MenuItem Header="_Gem" Command="{Binding SaveCommand}"></MenuItem>
-                    <MenuItem Header="_Luk"></MenuItem>
+                    <MenuItem Header="_Indlæs" Command="{Binding LoadCommand}"></MenuItem>
+                    <MenuItem Header="_Luk" Click="MenuItem_Luk_OnClick"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="_Jokes">
                     <MenuItem Header="_Opret ny vittighed" Command="{Binding AddCommand}"></MenuItem>
