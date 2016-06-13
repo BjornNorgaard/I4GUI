@@ -17,12 +17,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("JokeMachine 2000", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("JokeMachine 2000", "Index", "Browse", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Create", "Index", "Create")</li>
                     <li>@Html.ActionLink("Browse", "Index", "Browse")</li>
+                    <li>@Html.ActionLink("Create", "Index", "Create")</li>
                     <li>@Html.ActionLink("Search", "Index", "Search")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
