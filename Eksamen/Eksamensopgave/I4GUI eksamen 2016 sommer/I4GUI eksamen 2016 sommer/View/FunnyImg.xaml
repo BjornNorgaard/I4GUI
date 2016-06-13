@@ -10,7 +10,7 @@
         Style="{StaticResource MyStyle}">
     <Grid Margin="5">
         <StackPanel>
-            <!--<Image x:Name="image" Source="../Image/bridimg.jpg" Height="50"/>-->
+            <Image x:Name="image" Source="{StaticResource BirdImg}"/>
             <Button Content="Luk" Margin="0,5,0,0" Click="ButtonBase_Close_OnClick"></Button>
         </StackPanel>
     </Grid>

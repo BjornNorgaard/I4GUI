@@ -120,10 +120,7 @@ namespace I4GUI_eksamen_2016_sommer
                 string currentContent = File.ReadAllText(filename);
                 Jokes someJokes = JsonConvert.DeserializeObject<Jokes>(currentContent);
 
-                foreach (Joke joke in this)
-                {
-                    Remove(joke);
-                }
+                Clear();
 
                 foreach (Joke item in someJokes)
                 {

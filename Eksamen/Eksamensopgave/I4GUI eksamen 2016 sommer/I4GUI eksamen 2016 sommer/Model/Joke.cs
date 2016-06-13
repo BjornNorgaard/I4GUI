@@ -53,7 +53,7 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Joke()
         {
-
+            // I AM EMPTY BCUZ NEWTON JSON DESERIALIZATION :-)
         }
 
         public Joke(string jName, string jDate, string jSource, string tags)
@@ -71,13 +71,19 @@ namespace I4GUI_eksamen_2016_sommer
 
         public bool ContainsTopic(string topic)
         {
-            foreach (string item in Tags)
+            //foreach (string item in TagsSingleString)
+            //{
+            //    if (item.Contains(topic))
+            //    {
+            //        return true;
+            //    }
+            //}
+
+            if (TagsSingleString.Contains(topic))
             {
-                if (item.Contains(topic))
-                {
-                    return true;
-                }
+                return true;
             }
+
             return false;
         }
 
