@@ -51,7 +51,7 @@ namespace I4GUI_eksamen_2016_sommer
         public Jokes()
         {
             // use this for demo
-            //if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+            if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             //for (int i = 0; i < 100000; i++)
             {
                 Add(new Joke("Hvorfor gik kyllingen over vejen? For at komme over på den anden side.", "13.6.2016", "PHP-bog", "kylling, gåde"));
