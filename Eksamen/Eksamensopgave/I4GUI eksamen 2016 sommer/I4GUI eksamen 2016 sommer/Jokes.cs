@@ -71,11 +71,14 @@ namespace I4GUI_eksamen_2016_sommer
         private void AddJoke()
         {
             CreateJokeDialog dlg = new CreateJokeDialog();
-            dlg.ShowDialog();
-            
-            Add(new Joke());
-            NotifyPropertyChanged("Count");
-            CurrentIndex = Count - 1;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            if (dlg.ShowDialog() == true)
+            {
+                Add(new Joke(dlg.Tekst, dlg.Date, dlg.Source, dlg.Tags));
+                NotifyPropertyChanged("Count");
+                CurrentIndex = Count - 1;
+            }
         }
 
         #endregion

@@ -24,5 +24,10 @@ namespace I4GUI_eksamen_2016_sommer
         {
             InitializeComponent();
         }
+
+        private void UIElement_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

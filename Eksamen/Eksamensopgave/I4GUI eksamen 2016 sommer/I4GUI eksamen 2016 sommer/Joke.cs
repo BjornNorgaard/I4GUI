@@ -38,10 +38,7 @@ namespace I4GUI_eksamen_2016_sommer
         public string[] Tags
         {
             get { return _tags; }
-            set
-            {
-                _tags = value;
-            }
+            set { _tags = value; }
         }
 
         public string TagsSingleString

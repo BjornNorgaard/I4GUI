@@ -9,9 +9,6 @@
         Style="{StaticResource MyStyle}"
         SizeToContent="Height"
         WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <local:MainWindow></local:MainWindow>
-    </Window.DataContext>
     <Grid>
         <StackPanel>
 
@@ -34,7 +31,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Content="Cancel" IsCancel="True"></Button>
-                <Button Content="OK" IsDefault="True" Grid.Column="1"></Button>
+                <Button Content="OK" IsDefault="True" Grid.Column="1" Click="Button_OK_Click"></Button>
                 
             </Grid>
             

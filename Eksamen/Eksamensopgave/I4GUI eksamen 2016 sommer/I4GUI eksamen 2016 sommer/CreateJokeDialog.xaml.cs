@@ -28,5 +28,15 @@ namespace I4GUI_eksamen_2016_sommer
         {
             InitializeComponent();
         }
+
+        private void Button_OK_Click(object sender, RoutedEventArgs e)
+        {
+            Tekst = TextBoxTekst.Text;
+            Date = TextBoxDato.Text;
+            Source = TextBoxSource.Text;
+            Tags = TextBoxTags.Text;
+
+            DialogResult = true;
+        }
     }
 }
