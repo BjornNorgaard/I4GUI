@@ -17,5 +17,17 @@ namespace I4GUI_eksamen_2016_sommer
 
         #endregion
 
+        public bool ContainsTopic(string topic)
+        {
+            foreach (string item in TopicsList)
+            {
+                if (item.Contains(topic))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
