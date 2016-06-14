@@ -50,7 +50,6 @@ namespace I4GUI_eksamen_2016_sommer
 
         public Jokes()
         {
-            // use this for demo
             if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
             //for (int i = 0; i < 100000; i++)
             {

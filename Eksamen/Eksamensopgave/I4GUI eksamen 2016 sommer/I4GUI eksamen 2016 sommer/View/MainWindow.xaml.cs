@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace I4GUI_eksamen_2016_sommer
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         //JokesList foundJokes = new JokesList();

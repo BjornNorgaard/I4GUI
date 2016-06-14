@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace I4GUI_eksamen_2016_sommer
 {
-    /// <summary>
-    /// Interaction logic for CreateJokeDialog.xaml
-    /// </summary>
     public partial class CreateJokeDialog : Window
     {
         public string Tekst { get; set; }

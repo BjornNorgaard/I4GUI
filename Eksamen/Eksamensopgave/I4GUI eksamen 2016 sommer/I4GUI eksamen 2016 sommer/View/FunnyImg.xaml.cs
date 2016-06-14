@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace I4GUI_eksamen_2016_sommer
 {
-    /// <summary>
-    /// Interaction logic for FunnyImg.xaml
-    /// </summary>
     public partial class FunnyImg : Window
     {
         public event EventHandler CloseEvent;
