@@ -120,8 +120,17 @@ namespace I4GUI_eksamen_2016_sommer
         {
             if (File.Exists(filename))
             {
-                string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
-                Jokes someJokes = JsonConvert.DeserializeObject<Jokes>(currentContent);
+                Jokes someJokes = null;
+
+                try
+                {
+                    string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+                    someJokes = JsonConvert.DeserializeObject<Jokes>(currentContent);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong, might be that the file doesn't exist. Otherwise, here is the exception: " +e);
+                }
 
                 Clear();
 

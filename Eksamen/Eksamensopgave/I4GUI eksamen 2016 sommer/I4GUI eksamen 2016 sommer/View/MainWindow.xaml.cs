@@ -52,9 +52,9 @@ namespace I4GUI_eksamen_2016_sommer
                     {
                         derpJokes.Add(joke);
                     }
-
-                    Thread.Sleep(2000);
                 }
+
+                Thread.Sleep(3000);
 
                 return derpJokes;
             });
