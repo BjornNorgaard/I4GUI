@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form action="/Create/Create"  method="post">
+    <label for="type" class="control-label">Date</label>
+    <input class="form-control" name="date" type="text" />
+
+    <label for="type" class="control-label">Joke</label>
+    <input class="form-control" name="joke" type="text" />
+
+    <label for="type" class="control-label">Source</label>
+    <input class="form-control" name="source" type="text" />
+
+    <label for="type" class="control-label">Keywords</label>
+    <input class="form-control" name="tags" type="text" />
+
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
