@@ -19,8 +19,14 @@ namespace I4GUI_eksamen_2016_sommer_Web.Controllers
 
         public ActionResult Create(string date, string joke, string source, string tags)
         {
-            string currentContent = System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
-            List<Joke> jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
+            List<Joke> jokesInJsonFile = new List<Joke>();
+
+            if (System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
+            {
+                string currentContent =
+                    System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+                jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
+            }
 
             jokesInJsonFile.Add(new Joke(joke, date, source, tags));
             string newContent = JsonConvert.SerializeObject(jokesInJsonFile);

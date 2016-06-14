@@ -10,9 +10,9 @@
 
 <form action="/Search/Search" method="post">
     <label for="type" class="control-label">Keywords</label>
-    <input class="form-control" name="tags" type="text"/>
+    <input class="form-control" name="tags" type="text" />
 
-    <br/>
+    <br />
     <button for="type" type="submit" class="btn btn-primary">Submit</button>
 </form>
 
@@ -27,34 +27,38 @@
     </thead>
     <tbody>
         @{
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search"))
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
             {
-                string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
-            string searchTags = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search");
-            List<Joke> jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
-
-            foreach (Joke joke in jokesInJsonFile)
-            {
-                if (joke.ContainsTopic(searchTags))
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search"))
                 {
-                    <tr>
-                    <td>
-                        @joke.Date
-                    </td>
-                    <td>
-                        @joke.Name
-                    </td>
-                    <td>
-                        @joke.Source
-                    </td>
-                    <td>
-                        @foreach (var tag in joke.Tags)
+                    string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+                    string searchTags = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search");
+                    List<Joke> jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
+
+                    foreach (Joke joke in jokesInJsonFile)
+                    {
+                        if (joke.ContainsTopic(searchTags))
                         {
-                            <span class="label label-primary">@tag</span>
-                        }
-                    </td>
-                </tr>}
-            }}
+                            <tr>
+                                <td>
+                                    @joke.Date
+                                </td>
+                                <td>
+                                    @joke.Name
+                                </td>
+                                <td>
+                                    @joke.Source
+                                </td>
+                                <td>
+                                    @foreach (var tag in joke.Tags)
+                                    {
+                                        <span class="label label-primary">@tag</span>
+                                    }
+                                </td>
+                            </tr>}
+                    }
+                }
+            }
         }
     </tbody>
 </table>
