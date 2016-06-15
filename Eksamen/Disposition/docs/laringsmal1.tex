@@ -1,17 +1,22 @@
 \section{Redegøre for principperne i .NET frameworket og dets overordnede arkitektur samt beskrive og anvende programmeringssproget C\#}\label{sec:spm1}
 
-\subsection{Hvad er .NET?}
-
-
+\subsection{Hvad er .NET}
 % Skal omkring!!
 %% CLR runtime thing...
 %% Intermediete language, som clr oversætter...
+.NET er ef framework udviklet af Microsoft. Programmer som skrives til .NET køres i et virtuelt miljø, kaldet Common Langauge Runtime. CLR er et virtuelt miljø der står for sikkerhed, memory management og exception handling. Kode skrevet med .NET kaldes derfor for \textbf{\textit{Managed Code}} .NET frameworket tillader flere proggrammeringssprog at tale sammen (Language Interoperability).
+
 
 \subsection{Principper i .NET frameworket}
 
-%\begin{itemize}
-%	\item Lige til højrebenet
-%\end{itemize}
+\begin{itemize}
+	\item Interoperability
+	\item Language independance - .NET introducerer \textit{Common Type System} som definerer alle de datatyper og construct, som CLR supporterer samt hvordan de interagerer med hinanden. På denne måde yder .NET support udveksling af typer og objekter mellem forskellige libraries og applikationer, så længe de er skrevet i et .NET sprog. 
+	\item Portability - .NET er lavet så det er platform uafhængigt. Dog har Microsoft aldrig implementeret hele frameworket på andet end Windows. Microsoft har dog udgivet specifikationerne til Common Intermediate Langage, CIL.
+	\item Security - Code Access Security bruges til at forhindre "untrusted code" i at udføre priviledged actions. Når CLR'en loader en assembly fil, identificeres den \textit{gruppe} som koden hører til. En gruppe har et sæt af permissions. Når et stykke kode forøger at udføre en priviligeret handling, kigger CLR'en de permissions som koden har. Disse group permission set er defineret af system aministratoren.
+	\item Memory Management/Garbage collection - Se afsnit om garbage collectoren. Hvis en permission ikke gives af CLR'en kastes en security exception.
+	\item Performance - Når en applikation køres, kompileres IL koden af en JIT compiler, som cacher programmet i en .NET Native Image Cache. Den næste gang programmet køres er det allerede cachet og indlæses derfor hurtigere.
+\end{itemize}
 
 \subsection{Garbage Collection}
 Også kendt som \textbf{Managed Heap}. I de \textit{gode gamle dage} var den samme dans nødvendig hver gang en ressource skulle bruges:
@@ -66,7 +71,12 @@ Et object \textit{frigives} aldrig i kode. GC\footnote{Garbage Collector} frigiv
 % hvad laver den
 
 \subsection{Assembly}
-% hvad er en assembli
+En assmebly er kompileret kode. Der er to typer:
+\begin{itemize}
+	\item Process assemblies - .EXE filer. Repræsenterer en process der bruger klasser der er defineret i library assemblies. Assemblies indeholder kode i Intermediate Language.
+	\item Library assemblies - .DLL filer.
+	Assemblies kompileres til maskinkode af JIT compileren. JIT compileren er en del af CLR
+\end{itemize}
 
 \subsection{Overordnet arkitektur i .NET}
 
