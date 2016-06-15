@@ -1,0 +1,64 @@
+﻿@using I4GUI_eksamen_2016_sommer
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+<form action="/Search/Search" method="post">
+    <label for="type" class="control-label">Keywords</label>
+    <input class="form-control" name="tags" type="text" />
+
+    <br />
+    <button for="type" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table class="table table-hover" id="jokeTable">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Joke</th>
+            <th>Source</th>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
+            {
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search"))
+                {
+                    string currentContent = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+                    string searchTags = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\.joke_search");
+                    List<Joke> jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
+
+                    foreach (Joke joke in jokesInJsonFile)
+                    {
+                        if (joke.ContainsTopic(searchTags))
+                        {
+                            <tr>
+                                <td>
+                                    @joke.Date
+                                </td>
+                                <td>
+                                    @joke.Name
+                                </td>
+                                <td>
+                                    @joke.Source
+                                </td>
+                                <td>
+                                    @foreach (var tag in joke.Tags)
+                                    {
+                                        <span class="label label-primary">@tag</span>
+                                    }
+                                </td>
+                            </tr>}
+                    }
+                }
+            }
+        }
+    </tbody>
+</table>
