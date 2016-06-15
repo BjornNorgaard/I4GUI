@@ -117,7 +117,7 @@ namespace I4GUI_eksamen_2016_sommer
         }
         private void LoadFileCommand_Execute()
         {
-            if (File.Exists(filename))
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
             {
                 Jokes someJokes = null;
 
