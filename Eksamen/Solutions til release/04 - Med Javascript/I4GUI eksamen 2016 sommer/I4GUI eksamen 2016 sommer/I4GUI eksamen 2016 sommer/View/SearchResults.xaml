@@ -1,0 +1,35 @@
+﻿<Window x:Class="I4GUI_eksamen_2016_sommer.SearchResults"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:I4GUI_eksamen_2016_sommer"
+        mc:Ignorable="d"
+        Title="SearchResults"  Width="300"
+        Style="{StaticResource MyStyle}"
+        SizeToContent="Height" MaxHeight="600">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Fundne vittigheder:"></TextBlock>
+            <ListBox ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"
+                      DisplayMemberPath="Name" Name="ListBox_Jokes"/>
+
+
+            <!--Textblocks for showing selected joke-->
+            <TextBlock Text="Dato:"></TextBlock>
+            <TextBox Text="{Binding Path=Date}"></TextBox>
+
+            <TextBlock Text="Vittighed:"></TextBlock>
+            <TextBox Text="{Binding Path=Name}" TextWrapping="Wrap"></TextBox>
+
+            <TextBlock Text="Kilde:"></TextBlock>
+            <TextBox Text="{Binding Path=Source}"></TextBox>
+
+            <TextBlock Text="Emneord:"></TextBlock>
+            <TextBox Text="{Binding Path=TagsSingleString}"></TextBox>
+            <!--Textblocks for showing selected joke-->
+
+            <Button Content="Luk" Click="ButtonBase_Luk_OnClick"/>
+        </StackPanel>
+    </Grid>
+</Window>
