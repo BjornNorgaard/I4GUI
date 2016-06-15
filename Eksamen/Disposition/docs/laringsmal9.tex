@@ -1,4 +1,17 @@
 \section{Redegøre for arkitekturen for en Webapplikation}\label{sec:spm9}
 
+En webapplikation er en Client Server Applikation. Klient delen af en webapplikation kan skrives i HTML, JavaScript og styles med CSS. Klient delen vises i en browser, hvorimod serverdelen er logik der afvikles på en server. Man kan lave en webapplikation med MVC arkitekturen. Modellen kan her fx være dataklasser, ex. med Projektets User, Pool osv. Controlleren står for at manipulere dataen i modellen og samtidig opdatere det der vises i View laget. View laget er det som vises på skærmen.
+
+
+\subsection{ASP.NET}
+ASP.NET er et server side web apllikations framework. Det introducerer fil extensionen .CSHTML, hvor der kan kodes i en blanding af HTML og C\#. Her bruges Razor syntaks. I Razor syntaks kan C\# kode startes med @. En kode region kan skrives således:
+
+\begin{lstlisting}
+@{
+	<h1>@someObject.Get()</h1>
+}
+\end{lstlisting}
+
+
 % vise ord fra eksamensvideo
 %% 
