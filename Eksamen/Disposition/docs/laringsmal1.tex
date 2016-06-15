@@ -59,6 +59,29 @@ Et object \textit{frigives} aldrig i kode. GC\footnote{Garbage Collector} frigiv
 	\item Hvis alle objekter er markerede forekommer der ikke nogen compacting. Hvis der ikke er mere hukommelse bliver en \textit{OutOfMemoryException} smidt.
 \end{enumerate}
 
+\subparagraph{Marking phase}
+\begin{itemize}
+	\item Marks objects reachable from roots.
+	\begin{itemize}
+			\item En Root er en memory location, som kan referere til et object, eller være \textit{null}.			
+			\begin{itemize}
+				\item Static fields defined within a type.
+				\item Arguments passed to a method.
+				\item Local variables declared within a method.
+				\item CPU registers (enrigistered fields, argumenter or variables).
+			\end{itemize}			
+			\item Roots are always reference types (never value types).
+			\item Each method has a root table (produced by JIT compiler).
+	\end{itemize}	
+	\item Each marked object has its fields checked; these objects are marked too (recursively).
+	\item GC walks up the thread's call stack, determining roots for the calling methods by accessing each method's root table (hvor allerede markerede objekter 'skippes').
+	\begin{itemize}
+		\item Improves performance.
+		\item Prevents infinite loops due to circular  references.
+		\item Static fields are checked; these objects are marked too.
+	\end{itemize}
+\end{itemize}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{figs/markandsweep}
@@ -66,7 +89,26 @@ Et object \textit{frigives} aldrig i kode. GC\footnote{Garbage Collector} frigiv
 \label{fig:markandsweep}
 \end{figure}
 
-\
+\subparagraph{Compacting phase}
+\begin{itemize}
+	\item Compacts marked objects.
+	\begin{itemize}
+		\item Marked objects are shifted down (simple memory copy).		
+	\end{itemize}
+	\item No address space fragmentation unlike the unmanaged heap!
+	\begin{itemize}
+		\item Each root is updated to point to object's new memory address.
+	\end{itemize}
+	\item After compacting the heap...
+	\begin{itemize}
+		\item The \textit{NextObjPtr} pointer is positioned after last surviving object.
+		\item The 'new operation that caused the GC is tried again.
+		\item Heap should have free space \& new should succed.
+	\end{itemize}
+	\begin{itemize}
+		\item If not, a \textit{OutOfMemoryException} is thrown.
+	\end{itemize}
+\end{itemize}
 
 \subsection{C\# compiler}
 % hvad laver den
