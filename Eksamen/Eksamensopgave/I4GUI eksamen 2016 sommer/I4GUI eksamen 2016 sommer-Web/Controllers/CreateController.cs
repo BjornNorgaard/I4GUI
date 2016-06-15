@@ -23,8 +23,7 @@ namespace I4GUI_eksamen_2016_sommer_Web.Controllers
 
             if (System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json"))
             {
-                string currentContent =
-                    System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
+                string currentContent = System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\jokes.json");
                 jokesInJsonFile = JsonConvert.DeserializeObject<List<Joke>>(currentContent);
             }
 
